@@ -1,0 +1,17 @@
+
+
+{% extends 'front_office/base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block titre %}
+    <title>My profile</title>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block body %}
+
+{% block fos_user_content %}
+{% include "@FOSUser/Profile/show_content.html.twig" %}
+{% endblock fos_user_content %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

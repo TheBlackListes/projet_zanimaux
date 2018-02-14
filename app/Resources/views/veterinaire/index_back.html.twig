@@ -1,0 +1,69 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block titre %}
+    <title> Veterinaire List</title>
+{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">Tables des evenement</h2>
+
+                <div class="panel-body widget-shadow"
+                <div class="bs-example widget-shadow" data-example-id="contextual-table">
+                    <h4>         <a href="{{ path('veterinaire_new') }}">Create a new veterinaire</a> </h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Adresse</th>
+                            <th>Mail</th>
+                            <th>Telephone</th>
+                            <th>Actions</th>
+
+                        </tr>
+                        </thead>
+                        {% for veterinaire in veterinaires %}
+                            <tbody>
+
+                            <tr class="info">
+
+
+                                <td><a href="{{ path('veterinaire_show_back', { 'id': veterinaire.id }) }}">{{ veterinaire.id }}</a></td>
+                                <td>{{ veterinaire.nom }}</td>
+                                <td>{{ veterinaire.prenom }}</td>
+                                <td>{{ veterinaire.adresse }}</td>
+                                <td>{{ veterinaire.mail }}</td>
+                                <td>{{ veterinaire.telephone }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('veterinaire_show_back', { 'id': veterinaire.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('veterinaire_edit', { 'id': veterinaire.id }) }}">edit</a>
+                                        </li>
+                                       
+                                    </ul>
+                                </td>
+
+
+                            </tr>
+
+
+
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

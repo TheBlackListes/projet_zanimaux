@@ -1,0 +1,82 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block slider %}{% endblock %}
+{% block body %}
+
+    <!-- Creat account start -->
+    <div class="submit-property">
+        <div class="container">
+            <div class="row">
+                <div class="main-title">
+                    <h1>{{ 'layout.register'|trans|capitalize }}</h1>
+                    <div class="border">
+                        <div class="border-inner"></div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
+                    <div class="submit-address">
+
+                        {{ form_start(form, {'method': 'post', 'action': '', 'attr': {'class': ''} }) }}
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3">
+
+                                {% spaceless %}
+                                    {% if not form.vars.valid %}
+                                        <div class="alert alert-danger">
+                                            {{ form_errors(form) }}
+                                            {% for children in form.children %}
+                                                {% if not children.vars.valid %}
+                                                    {{ form_errors(children) }}
+                                                {% endif %}
+                                                {% for child in children %}
+                                                    {% if not child.vars.valid %}
+                                                        {{ form_errors(child) }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                            <span class="close"></span>
+                                        </div>
+                                    {% endif %}
+                                {% endspaceless %}
+
+                                <div class="form-group">
+                                    <label for="{{ form.username.vars.id }}">{{ 'form.username'|trans }} <i
+                                                class="text-danger">*</i></label>
+                                    {{ form_widget(form.username, { 'attr': {'class': 'input-text'}} ) }}
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="{{ form.email.vars.id }}">{{ 'form.email'|trans }} <i
+                                                class="text-danger">*</i></label>
+                                    {{ form_widget(form.email, { 'attr': {'class': 'input-text'}} ) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.plainPassword.first.vars.id }}">{{ 'form.password'|trans }} <i
+                                                class="text-danger">*</i></label>
+                                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'input-text form-control'}} ) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.plainPassword.second.vars.id }}">{{ 'form.password_confirmation'|trans }}
+                                        <i
+                                                class="text-danger">*</i></label>
+                                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'input-text form-control'}} ) }}
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit"
+                                            class="button-md button-theme">{{ 'registration.submit'|trans }}</button>
+                                </div>
+                                {{ form_rest(form) }}
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

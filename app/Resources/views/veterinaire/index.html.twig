@@ -1,0 +1,49 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block titre %}
+    <title>Zanimo Veterinaire</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Veterinaires list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Mail</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for veterinaire in veterinaires %}
+            <tr>
+                <td><a href="{{ path('veterinaire_show', { 'id': veterinaire.id }) }}">{{ veterinaire.id }}</a></td>
+                <td>{{ veterinaire.nom }}</td>
+                <td>{{ veterinaire.prenom }}</td>
+                <td>{{ veterinaire.adresse }}</td>
+                <td>{{ veterinaire.mail }}</td>
+                <td>{{ veterinaire.telephone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('veterinaire_show', { 'id': veterinaire.id }) }}">show</a>
+                        </li>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('veterinaire_new') }}">Create a new veterinaire</a>
+        </li>
+    </ul>
+{% endblock %}

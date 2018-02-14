@@ -1,0 +1,34 @@
+veterinaire_index:
+    path:     /
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:index" }
+    methods:  GET
+
+veterinaire_index_back:
+    path:     /list_veterinaire
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:index_back" }
+    methods:  GET
+
+veterinaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:show" }
+    methods:  GET
+
+veterinaire_show_back:
+    path:     /{id}/show_back
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:show_back" }
+    methods:  GET
+
+veterinaire_new:
+    path:     /new
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:new" }
+    methods:  [GET, POST]
+
+veterinaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:edit" }
+    methods:  [GET, POST]
+
+veterinaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:delete" }
+    methods:  DELETE

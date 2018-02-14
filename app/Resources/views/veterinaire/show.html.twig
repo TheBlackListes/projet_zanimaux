@@ -1,0 +1,48 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <h1>Veterinaire</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ veterinaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ veterinaire.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ veterinaire.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ veterinaire.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ veterinaire.mail }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ veterinaire.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('veterinaire_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('veterinaire_edit', { 'id': veterinaire.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

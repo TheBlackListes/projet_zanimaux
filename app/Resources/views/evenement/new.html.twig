@@ -1,0 +1,100 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+
+<!--
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" onclick="event_index" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('event_index') }}">Back to the list</a>
+        </li>
+    </ul>
+-->
+
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <div class="top">
+                    <h1>Submit Property</h1>
+                </div>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Submit Property</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Submit Property start -->
+<div class="submit-property">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="notification-box">
+                    <h3>Don't Have an Account?</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan.</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="submit-address">
+                    <p1>{{ form_errors(form) }}</p1>
+
+                    <form method="post" action="{{ path('event_new') }}">
+                        <h1>Ajouter un evenement</h1>
+                        <div class="search-contents-sidebar">
+                            <div class="form-group">
+                                <label>Nom d'evenement</label>
+                                {{ form_widget(form.nom) }}
+                                <input type="text" class="input-text" name="your name" placeholder="evenement nom">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Lieu</label>
+                                {{ form_widget(form.lieu) }}
+                                <input type="text" class="input-text" name="your name" placeholder="evenment liu">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Date</label>
+                                {{ form_widget(form.date) }}
+                                <input type="text" class="input-text" name="your name" placeholder="evenment liu">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nombre des Participant</label>
+                                {{ form_widget(form.nbrMaxParticipant) }}
+                                <input type="text" class="input-text" name="your name" placeholder="Property Title">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Description de l'evenement</label>
+                                {{ form_widget(form.description) }}
+                                <textarea class="input-text" name="message" placeholder="Detailed Information"></textarea>
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ form_widget(form._token) }}
+
+                                <input type="submit" value="Ajouter" onclick="event_index" class="btn button-md button-theme"/>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Submit Property end -->
+{% endblock %}

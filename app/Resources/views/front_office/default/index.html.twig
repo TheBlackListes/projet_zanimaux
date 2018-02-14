@@ -1,0 +1,536 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block titre %}
+    <title>Zanimo Homepage</title>
+{% endblock %}
+
+{% block slider %}
+    <!-- Banner start -->
+    {{ include('front_office/include/slider.html.twig') }}
+    <!-- Banner end -->
+{% endblock %}
+
+{% block body %}
+    <!-- Recent properties start -->
+    <div class="recent-properties">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Featured Properties</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. interdum hendrerit lacinia.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInUp delay-03s">
+                    <!-- Recent properties box start -->
+                    <div class="thumbnail recent-properties-box">
+                        <img src="{{ asset('frontOffice/assets/img/properties/properties-1.jpg')}}" alt="properties-1" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!-- Header -->
+                            <header>
+                                <div class="pull-left">
+                                    <h1 class="title">
+                                        <a href="properties-details.html">4552 Lynn Avenue</a>
+                                    </h1>
+                                </div>
+                                <!-- Price -->
+                                <div class="price">
+                                    $2153.00
+                                </div>
+                            </header>
+                            <!-- Location -->
+                            <h3 class="location">
+                                <a href="#">
+                                    <i class="fa fa-map-marker"></i>20-21 Kathal St. Tampa City, FL
+                                </a>
+                            </h3>
+                            <!-- Facilities List -->
+                            <ul class="facilities-list clearfix">
+                                <li class="bordered-right">
+                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                    <span>4800 sq ft</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-bed"></i>
+                                    <span>2 Bedroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-monitor"></i>
+                                    <span>1 TV Lounge</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-holidays"></i>
+                                    <span>3 Bathroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-vehicle"></i>
+                                    <span>1 Garage</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-building"></i>
+                                    <span> 3 Balcony</span>
+                                </li>
+                            </ul>
+                            <!-- Footer -->
+                            <div class="footer">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> Jhon Doe
+                                </a>
+                                <span>
+                                    <i class="fa fa-calendar-o"></i> 1 day ago
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Tag -->
+                        <span class="tag-f">
+                            <a href="properties-details.html">Featured</a>
+                        </span>
+                        <span class="tag-s">
+                        <a href="properties-details.html">For Sale</a>
+                    </span>
+                    </div>
+                    <!-- Recent properties box end -->
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInUp delay-03s">
+                    <!-- Recent properties box start -->
+                    <div class="thumbnail recent-properties-box">
+                        <img src="{{ asset('frontOffice/assets/img/properties/properties-3.jpg')}}" alt="properties-3" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!-- Header -->
+                            <header>
+                                <div class="pull-left">
+                                    <h1 class="title">
+                                        <a href="properties-details.html">Park avenue</a>
+                                    </h1>
+                                </div>
+                                <!-- Price -->
+                                <div class="price">
+                                    $9011.00
+                                </div>
+                            </header>
+                            <!-- Location -->
+                            <h3 class="location">
+                                <a href="#">
+                                    <i class="fa fa-map-marker"></i>20-21 Kathal St. Tampa City, FL
+                                </a>
+                            </h3>
+                            <!-- Facilities List -->
+                            <ul class="facilities-list clearfix">
+                                <li class="bordered-right">
+                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                    <span>4800 sq ft</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-bed"></i>
+                                    <span>2 Bedroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-monitor"></i>
+                                    <span>1 TV Lounge</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-holidays"></i>
+                                    <span>3 Bathroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-vehicle"></i>
+                                    <span>1 Garage</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-building"></i>
+                                    <span> 3 Balcony</span>
+                                </li>
+                            </ul>
+                            <!-- Footer -->
+                            <div class="footer">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> Jhon Doe
+                                </a>
+                                <span>
+                                    <i class="fa fa-calendar-o"></i> 1 day ago
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Tag -->
+                        <span class="tag-f">
+                            <a href="properties-details.html">Featured</a>
+                        </span>
+                        <span class="tag-s">
+                        <a href="properties-details.html">For Sale</a>
+                    </span>
+                    </div>
+                    <!-- Recent properties box end -->
+                </div>
+                <div class="col-lg-4 col-md-4 hidden-sm wow fadeInUp delay-03s">
+                    <!-- Recent properties box start -->
+                    <div class="thumbnail recent-properties-box">
+                        <img src="{{ asset('frontOffice/assets/img/properties/properties-2.jpg')}}" alt="properties-2" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!-- Header -->
+                            <header>
+                                <div class="pull-left">
+                                    <h1 class="title">
+                                        <a href="properties-details.html">Masons Villas</a>
+                                    </h1>
+                                 </div>
+                                <!-- Price -->
+                                <div class="price">
+                                    $8116.00
+                                </div>
+                            </header>
+                            <!-- Location -->
+                            <h3 class="location">
+                                <a href="#">
+                                    <i class="fa fa-map-marker"></i>20-21 Kathal St. Tampa City, FL
+                                </a>
+                            </h3>
+                            <!-- Facilities List -->
+                            <ul class="facilities-list clearfix">
+                                <li class="bordered-right">
+                                    <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                    <span>4800 sq ft</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-bed"></i>
+                                    <span>2 Bedroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-monitor"></i>
+                                    <span>1 TV Lounge</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-holidays"></i>
+                                    <span>3 Bathroom</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-vehicle"></i>
+                                    <span>1 Garage</span>
+                                </li>
+                                <li>
+                                    <i class="flaticon-building"></i>
+                                    <span> 3 Balcony</span>
+                                </li>
+                            </ul>
+                            <!-- Footer -->
+                            <div class="footer">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> Jhon Doe
+                                </a>
+                                <span>
+                                <i class="fa fa-calendar-o"></i> 1 day ago
+                            </span>
+                            </div>
+                        </div>
+                        <!-- Tag -->
+                        <span class="tag-f">
+                            <a href="properties-details.html">Featured</a>
+                        </span>
+                        <span class="tag-s">
+                        <a href="properties-details.html">For Sale</a>
+                    </span>
+                    </div>
+                    <!-- Recent properties box end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Recent properties end -->
+
+    <!-- Section-1 start -->
+    <div class="section-1 looking-for">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>What are you looking for?</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. interdum hendrerit lacinia.</p>
+            </div>
+
+            <div class="row mgn-btm wow">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                    <div class="content">
+                        <i class="flaticon-apartment"></i>
+                        <h4>Apartments</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                    <div class="content">
+                        <i class="flaticon-internet"></i>
+                        <h4>Houses</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                    <div class="content">
+                        <i class="flaticon-vehicle"></i>
+                        <h4>Garages</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                    <div class="content">
+                        <i class="flaticon-symbol"></i>
+                        <h4>Commercial</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn button-md button-theme">Read More</a>
+        </div>
+    </div>
+    <!-- Section-1 end -->
+
+    <!-- Categories strat -->
+    <div class="categories">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Most Popular Places</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. interdum hendrerit lacinia.</p>
+            </div>
+            <div class="row wow">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 wow fadeInLeft delay-04s">
+                            <div class="category">
+                                <div class="category_bg_box cat-1-bg">
+                                    <div class="category-overlay">
+                                    <span class="category-content">
+                                        <span class="category-title">New York</span><br>
+                                        <span class="category-subtitle">27 Properties</span>
+                                        <br>
+                                        <a href="#" class="btn button-md button-theme">View All</a>
+                                    </span><!-- /.category-content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 wow fadeInLeft delay-04s">
+                            <div class="category">
+                                <div class="category_bg_box cat-2-bg">
+                                    <div class="category-overlay">
+                                    <span class="category-content">
+                                        <span class="category-title">California</span><br>
+                                        <span class="category-subtitle">98 Properties</span>
+                                        <br>
+                                        <a href="#" class="btn button-md button-theme">View All</a>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 wow fadeInUp delay-04s">
+                            <div class="category">
+                                <div class="category_bg_box cat-3-bg">
+                                    <div class="category-overlay">
+                                    <span class="category-content">
+                                        <span class="category-title">Florida</span><br>
+                                        <span class="category-subtitle">98 Properties</span>
+                                        <br>
+                                        <a href="#" class="btn button-md button-theme">View All</a>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 wow fadeInRight delay-04s">
+                    <div class="category">
+                        <div class="category_bg_box category_long_bg cat-4-bg">
+                            <div class="category-overlay">
+                            <span class="category-content">
+                                <span class="category-title">Canada</span><br>
+                                <span class="category-subtitle">98 Properties</span>
+                                <br>
+                                <a href="#" class="btn button-md button-theme">View All</a>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories end-->
+
+    <!-- Section-2 start -->
+    <div class="section-2 content-area articles-tips">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Articles & Tips</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. interdum hendrerit lacinia.</p>
+            </div>
+
+            <div class="row wow">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                    <div class="thumbnail articles-box">
+                        <img src="{{ asset('frontOffice/assets/img/blog/blog-2.jpg')}}" alt="blog-2" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!--  title -->
+                            <h1 class="title "><a href="#">Bedroom Colors You'll Never Regret</a></h1>
+                            <!-- paragraph -->
+                            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae.</p>
+                            <!-- Btn -->
+                            <a href="properties-details.html" class="btn button-sm button-theme">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInLeft delay-04s">
+                    <div class="thumbnail articles-box">
+                        <img src="{{ asset('frontOffice/assets/img/blog/blog-1.jpg')}}" alt="blog-1" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!--  title -->
+                            <h1 class="title"><a href="#">8 Tips to Help You Finding New Home</a></h1>
+                            <!-- paragraph -->
+                            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae.</p>
+                            <!-- Btn -->
+                            <a href="properties-details.html" class="btn button-sm button-theme">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                    <div class="thumbnail articles-box">
+                        <img src="{{ asset('frontOffice/assets/img/blog/blog-3.jpg')}}" alt="blog-3" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!--  title -->
+                            <h1 class="title"><a href="#">What to Do a Year Before Buying Apartment</a></h1>
+                            <!-- paragraph -->
+                            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae.</p>
+                            <!-- Btn -->
+                            <a href="properties-details.html" class="btn button-sm button-theme">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeInRight delay-04s">
+                    <div class="thumbnail articles-box">
+                        <img src="{{ asset('frontOffice/assets/img/blog/blog-4.jpg')}}" alt="blog-4" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <!--  title -->
+                            <h1 class="title"><a href="#">8 Tips to Help You Finding New Home</a></h1>
+                            <!-- paragraph -->
+                            <p>Nam nisl lacus, dignissim ac tristique ut, scelerisque eu massa. Vestibulum ligula nunc, rutrum in malesuada vitae.</p>
+                            <!-- Btn -->
+                            <a href="properties-details.html" class="btn button-sm button-theme">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Section-2 end -->
+
+    <!-- Counters strat -->
+    <div class="counters">
+        <div class="counters-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 wow fadeInLeft delay-04s">
+                        <div class="counter-box">
+                            <i class="flaticon-tag"></i>
+                            <h1 class="counter">967</h1>
+                            <p>Listings For Sale</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInLeft delay-04s">
+                        <div class="counter-box">
+                            <i class="flaticon-symbol-1"></i>
+                            <h1 class="counter">1276</h1>
+                            <p>Listings For Rent</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInRight delay-04s">
+                        <div class="counter-box">
+                            <i class="flaticon-people"></i>
+                            <h1 class="counter">396</h1>
+                            <p>Agents</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInRight delay-04s">
+                        <div class="counter-box">
+                            <i class="flaticon-people-1"></i>
+                            <h1 class="counter">177</h1>
+                            <p>Brokers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Counters end -->
+
+    <!-- Partners block start -->
+    <div class="partners-block">
+        <div class="container">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="carousel our-partners slide" id="ourPartners">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="{{ asset('frontOffice/assets/img/brand/audiojungle.png')}}" alt="audiojungle">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="{{ asset('frontOffice/assets/img/brand/themeforest.png')}}" alt="themeforest">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="{{ asset('frontOffice/assets/img/brand/tuts.png')}}" alt="tuts">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="{{ asset('frontOffice/assets/img/brand/graphicriver.png')}}" alt="graphicriver">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="{{ asset('frontOffice/assets/img/brand/codecanyon.png')}}" alt="codecanyon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#ourPartners" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
+                        <a class="right carousel-control" href="#ourPartners" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partners block end -->
+{% endblock %}

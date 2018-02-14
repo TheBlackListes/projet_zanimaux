@@ -1,0 +1,12 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:index }
+backOffice:
+    path:     /admin
+    defaults: { _controller: AppBundle:Default:contact }
+
+
+homepage:
+    path:     /home
+    defaults: { _controller: AppBundle:Default:about}
+

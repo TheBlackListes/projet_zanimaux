@@ -1,0 +1,7 @@
+veterinaire_veterinaire:
+    resource: "@VeterinaireBundle/Resources/config/routing/veterinaire.yml"
+    prefix:   /veterinaire
+
+veterinaire_homepage:
+    path:     /
+    defaults: { _controller: VeterinaireBundle:Default:index }

@@ -1,0 +1,76 @@
+<header class="top-header hidden-xs" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="list-inline">
+                    <a href="tel:1-8X0-666-8X88"><i class="fa fa-phone"></i>Need Support? 1-8X0-666-8X88</a>
+                    <a href="tel:info@themevessel.com"><i class="fa fa-envelope"></i>info@themevessel.com</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <ul class="top-social-media pull-right">
+                    <li class="login">
+                        <a href="#"><i class="fa fa-user"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-envelope-o"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+
+                    {% if(is_granted('ROLE_USER')) %}
+                        <li class="dropdown active open">
+                            <!--<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="true">
+                                Pages<span class="caret"></span>
+                            </a
+                            <a href="{{ path('fos_user_security_logout')}}" class="sign-in"><i class="fa fa-user"></i> Log out</a>-->
+                            <div class="header-nav-user" style="margin: 0px; margin-left: 30px;">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            id="dropdownMenu1"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <span class="header-nav-user-name">{{ app.user.username }}</span> <i
+                                                class="fa fa-chevron-down"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <a href="{{ path('fos_user_profile_show')}}">
+                                        <li><a href="{{ path('fos_user_profile_show')}}">Profil</a></li>
+                                        <li><a href="">Edit Profil</a></li>
+                                        <li><a href=""> mes Annonces</a></li>
+                                        <li><a href=""> mes Animaux</a></li>
+                                        <li><a class="" href=""> mes produits
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('fos_user_security_logout') }}">
+                                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('fos_user_registration_register')}}" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_login')}}" class="sign-in"><i class="fa fa-user"></i> Log in</a>
+                        </li>
+                    {% endif %}
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
