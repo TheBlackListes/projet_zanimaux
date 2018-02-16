@@ -1,0 +1,68 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+
+    <h1>Animauxes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type_animal</th>
+                <th>Type_offre</th>
+                <th>Race</th>
+                <th>Sexe</th>
+                <th>Age</th>
+                <th>Taille</th>
+                <th>Poids</th>
+                <th>Description</th>
+                <th>Energie</th>
+                <th>Force</th>
+                <th>Sociabilite</th>
+                <th>Intelligence</th>
+                <th>Photo</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for animaux in animauxes %}
+            <tr>
+                <td><a href="{{ path('animaux_show', { 'id': animaux.id }) }}">{{ animaux.id }}</a></td>
+                <td>{{ animaux.nom }}</td>
+                <td>{{ animaux.typeanimal }}</td>
+                <td>{{ animaux.typeoffre }}</td>
+                <td>{{ animaux.race }}</td>
+                <td>{{ animaux.sexe }}</td>
+                <td>{{ animaux.age }}</td>
+                <td>{{ animaux.taille }}</td>
+                <td>{{ animaux.poids }}</td>
+                <td>{{ animaux.description }}</td>
+                <td>{{ animaux.energie }}</td>
+                <td>{{ animaux.forceX }}</td>
+                <td>{{ animaux.sociabilite }}</td>
+                <td>{{ animaux.intelligence }}</td>
+                <td>{{ animaux.photo }}</td>
+                <td>{{ animaux.prix }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('animaux_show', { 'id': animaux.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('animaux_edit', { 'id': animaux.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('animaux_new') }}">Create a new animaux</a>
+        </li>
+    </ul>
+{% endblock %}

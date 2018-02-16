@@ -2,100 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ae6c618-a07c-45be-a774-7d1f7993bafe" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/sidebar.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_admin.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/back_office/default/index.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/back_office/include/script.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/evenement/index1.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/produit/i.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/produit/neww.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/produit/test.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/veterinaire/index_back.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/veterinaire/show_back.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AnnonceBundle/AnnonceBundle.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AnnonceBundle/Entity/Annonce.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AnnonceBundle/Resources/config/routing.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Redirection/AfterLoginRedirection.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/AnnonceBundle/Controller/DefaultControllerTest.php" />
       <change beforePath="$PROJECT_DIR$/.idea/PI.iml" afterPath="$PROJECT_DIR$/.idea/PI.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_2_8_18_2_38_AM_c.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_15_02_18_00_04_c.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_2_8_18_2_38_AM_s.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_15_02_18_00_04_s.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_15_02_18_00_04_c.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_17_02_18_00_18_c.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_15_02_18_00_04_s.xml" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_17_02_18_00_40_s.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/animaux/edit.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/animaux/index.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/animaux/new.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/animaux/show.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/back_office/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/back_office/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/back_office/form/table.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/back_office/include/menu.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/back_office/include/menu.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/evenement/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/evenement/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/evenement/new.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/front_office/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/front_office/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/front_office/include/footer.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/front_office/include/footer.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/front_office/include/top_header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/front_office/include/top_header.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/magasin/edit.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/magasin/index.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/magasin/new.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/magasin/show.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/produit/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/produit/edit.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/produit/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/produit/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/produit/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/produit/new.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/produit/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/produit/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/reclamation/edit.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/reclamation/index.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/reclamation/new.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/reclamation/show.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/veterinaire/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/veterinaire/edit.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/veterinaire/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/veterinaire/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/veterinaire/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/veterinaire/new.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Controller/AnimauxController.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
       <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Entity/Animaux.php" afterPath="$PROJECT_DIR$/src/AnimauxBundle/Entity/Animaux.php" />
-      <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Form/AnimauxType.php" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AnimauxBundle/Resources/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Resources/config/routing/animaux.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing_frontend/default.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing_frontend/default.yml" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Controller/EvenementController.php" afterPath="$PROJECT_DIR$/src/EvenementBundle/Controller/EvenementController.php" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Entity/Evenement.php" afterPath="$PROJECT_DIR$/src/EvenementBundle/Entity/Evenement.php" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Form/EvenementType.php" afterPath="$PROJECT_DIR$/src/EvenementBundle/Form/EvenementType.php" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing/evenement.yml" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing/evenement.yml" />
-      <change beforePath="$PROJECT_DIR$/src/MagasinBundle/Controller/MagasinController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/MagasinBundle/Form/MagasinType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/UserType.php" />
-      <change beforePath="$PROJECT_DIR$/src/MagasinBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/MagasinBundle/Resources/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/MagasinBundle/Resources/config/routing/magasin.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php" afterPath="$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Entity/Produit.php" afterPath="$PROJECT_DIR$/src/ProduitBundle/Entity/Produit.php" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Form/ProduitType.php" afterPath="$PROJECT_DIR$/src/ProduitBundle/Form/ProduitType.php" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/ProduitBundle/Resources/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Resources/config/routing/produit.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ProduitBundle/Tests/Controller/ProduitControllerTest.php" afterPath="$PROJECT_DIR$/src/ProduitBundle/Tests/Controller/ProduitControllerTest.php" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AnnonceBundle/Controller/DefaultController.php" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/ReclamationController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Entity/Reclamation.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Form/ReclamationType.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/ReclamationBundle.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/config/routing.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/config/routing/reclamation.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/AnnonceBundle/Resources/config/services.yml" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AnnonceBundle/Resources/views/Default/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Tests/Controller/ReclamationControllerTest.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/VeterinaireBundle/Controller/VeterinaireController.php" afterPath="$PROJECT_DIR$/src/VeterinaireBundle/Controller/VeterinaireController.php" />
-      <change beforePath="$PROJECT_DIR$/src/VeterinaireBundle/Entity/Veterinaire.php" afterPath="$PROJECT_DIR$/src/VeterinaireBundle/Entity/Veterinaire.php" />
-      <change beforePath="$PROJECT_DIR$/src/VeterinaireBundle/Resources/config/routing/veterinaire.yml" afterPath="$PROJECT_DIR$/src/VeterinaireBundle/Resources/config/routing/veterinaire.yml" />
-      <change beforePath="$PROJECT_DIR$/web/frontOffice/assets/img/logos/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AnimauxBundle/Resources/views/Default/index.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/AnimauxBundle/Tests/Controller/AnimauxControllerTest.php" afterPath="$PROJECT_DIR$/src/AnimauxBundle/Tests/Controller/AnimauxControllerTest.php" />
+      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -110,115 +28,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProduitController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-              <folding>
-                <element signature="e#44#77#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Produit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProduitBundle/Entity/Produit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="i.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/i.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="254" column="57" lean-forward="false" selection-start-line="254" selection-start-column="54" selection-end-line="254" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/test.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-573">
-              <caret line="24" column="53" lean-forward="false" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-              <folding>
-                <element signature="e#12#39#0#Twig" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="192" column="76" lean-forward="false" selection-start-line="192" selection-start-column="76" selection-end-line="192" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/evenement/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="87" column="88" lean-forward="false" selection-start-line="87" selection-start-column="88" selection-end-line="87" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#39#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="neww.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/neww.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="84" column="83" lean-forward="false" selection-start-line="84" selection-start-column="83" selection-end-line="84" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/show.html.twig">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#12#39#0#Twig" expanded="true" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_header.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -284,12 +119,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="c clear-cache" />
-      <command text="s doctrine:generate:form AppBundle:User" />
-      <command text="s doctrine:database:create" />
-      <command text="s doctrine:schema:update --force" />
-      <command text="c dump-autoload" />
-      <command text="s generate:bundle" />
       <command text="s doctrine:mapping:import AnnonceBundle annotation" />
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:mapping:import AnnonceBundle annotation" />
@@ -309,6 +138,12 @@
       <command text="s doctrine:schema:update --force " />
       <command text="s doctrine:generate:crud ProduitBundle" />
       <command text="s doctrine:schema:update --force" />
+      <command text="c dump-autoload" />
+      <command text="s doctrine:database:create" />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s doctrine:database:create" />
+      <command text="s doctrine:schema:update" />
+      <command text="s doctrine:schema:update --force " />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
@@ -339,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/EvenementBundle/Form/EvenementType.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/UserType.php" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" />
         <option value="$PROJECT_DIR$/src/AnnonceBundle/Entity/Animaux.php" />
@@ -360,7 +194,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/produit/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/produit/show.html.twig" />
         <option value="$PROJECT_DIR$/src/ProduitBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/produit/new.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/produit/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig" />
@@ -371,6 +204,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/produit/neww.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/produit/test.html.twig" />
         <option value="$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
       </list>
     </option>
   </component>
@@ -473,120 +308,38 @@
         <subPane>
           <expand>
             <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="projet_zanimaux" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_zanimaux" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="projet_zanimaux" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_zanimaux" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="projet_zanimaux" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_zanimaux" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Profile" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="evenement" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="front_office" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="produit" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ProduitBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ProduitBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ProduitBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ProduitBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="projet_zanimaux" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet_zanimaux" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/composer.phar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -648,28 +401,29 @@
       <workItem from="1518649148436" duration="2189000" />
       <workItem from="1518651750642" duration="9693000" />
       <workItem from="1518683067272" duration="6553000" />
+      <workItem from="1518822300741" duration="1209000" />
+      <workItem from="1518824109026" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182971000" />
+    <option name="totallyTimeSpent" value="184793000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20045386" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.228125" sideWeight="0.49448818" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31578946" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2766191" sideWeight="0.5130208" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2777778" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2766191" sideWeight="0.48697916" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5055118" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -712,13 +466,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/sidebar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -737,7 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2618">
           <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,13 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -900,21 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -936,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,16 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-          <folding>
-            <element signature="e#12#39#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -961,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6001">
           <caret line="353" column="0" lean-forward="false" selection-start-line="353" selection-start-column="0" selection-end-line="353" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -992,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="91" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,51 +715,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProduitBundle/Entity/Produit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="441">
           <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/show.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#39#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="583">
+          <caret line="71" column="42" lean-forward="false" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AnimauxBundle/Entity/Animaux.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="192" column="76" lean-forward="false" selection-start-line="192" selection-start-column="76" selection-end-line="192" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/evenement/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="87" column="88" lean-forward="false" selection-start-line="87" selection-start-column="88" selection-end-line="87" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#39#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="84">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1060,48 +743,86 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="254" column="57" lean-forward="false" selection-start-line="254" selection-start-column="54" selection-end-line="254" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/test.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-573">
+        <state relative-caret-position="504">
           <caret line="24" column="53" lean-forward="false" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-          <folding>
-            <element signature="e#12#39#0#Twig" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/back_office/include/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="535">
+          <caret line="192" column="76" lean-forward="false" selection-start-line="192" selection-start-column="76" selection-end-line="192" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/evenement/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="99" column="14" lean-forward="false" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/neww.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="475">
           <caret line="84" column="83" lean-forward="false" selection-start-line="84" selection-start-column="83" selection-end-line="84" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/produit/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProduitBundle/Controller/ProduitController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/front_office/include/main_header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
-          <folding>
-            <element signature="e#44#77#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="317">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
