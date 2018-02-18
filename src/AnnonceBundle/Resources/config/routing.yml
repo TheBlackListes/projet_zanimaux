@@ -1,3 +1,8 @@
+annonce_annonce:
+    resource: "@AnnonceBundle/Resources/config/routing/annonce.yml"
+    prefix:   /annonce
+
 annonce_homepage:
     path:     /
     defaults: { _controller: AnnonceBundle:Default:index }
+

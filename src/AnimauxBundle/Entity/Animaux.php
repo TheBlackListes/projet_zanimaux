@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Animaux
  *
  * @ORM\Table(name="animaux")
- * @ORM\Entity(repositoryClass="AnimauxBundle\Repository\AnimauxRepository")
+ * @ORM\Entity
  */
 class Animaux
 {
@@ -94,9 +94,9 @@ class Animaux
     /**
      * @var integer
      *
-     * @ORM\Column(name="forceX", type="integer", nullable=true)
+     * @ORM\Column(name="force", type="integer", nullable=true)
      */
-    private $forceX = '0';
+    private $force = '0';
 
     /**
      * @var integer
@@ -314,17 +314,17 @@ class Animaux
     /**
      * @return int
      */
-    public function getForceX()
+    public function getForce()
     {
-        return $this->forceX;
+        return $this->force;
     }
 
     /**
-     * @param int $forceX
+     * @param int $force
      */
-    public function setForceX($forceX)
+    public function setForce($force)
     {
-        $this->forceX = $forceX;
+        $this->force = $force;
     }
 
     /**
@@ -406,7 +406,6 @@ class Animaux
     {
         $this->proprietaire = $proprietaire;
     }
-
 
 }
 

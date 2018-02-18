@@ -3,7 +3,21 @@
 
 {% block slider %}{% endblock %} {# on appel le block slider vide pour ne pas l'afficher dans cette page#}
 {% block body %}
-
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">Login</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Creat account start -->
     <div class="submit-property">
         <div class="container">

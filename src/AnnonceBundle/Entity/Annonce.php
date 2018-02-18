@@ -15,11 +15,11 @@ class Annonce
     /**
      * @var integer
      *
-     * @ORM\Column(name="idannonce", type="integer", nullable=false)
+     * @ORM\Column(name="idannonce", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idannonce;
+    private $id;
 
     /**
      * @var string
@@ -79,26 +79,15 @@ class Annonce
     /**
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_membre", referencedColumnName="id", nullable=false)
-     * })
      */
-    private $id_membre;
+    private $membre;
 
     /**
      * @return int
      */
-    public function getIdannonce()
+    public function getId()
     {
-        return $this->idannonce;
-    }
-
-    /**
-     * @param int $idannonce
-     */
-    public function setIdannonce($idannonce)
-    {
-        $this->idannonce = $idannonce;
+        return $this->id;
     }
 
     /**
@@ -229,23 +218,32 @@ class Annonce
         $this->periode = $periode;
     }
 
+
+
+
+
+
     /**
-     * @return mixed
+     * Set membre
+     *
+     * @param \AppBundle\Entity\User $membre
+     *
+     * @return Annonce
      */
-    public function getIdMembre()
+    public function setMembre(\AppBundle\Entity\User $membre = null)
     {
-        return $this->id_membre;
+        $this->membre = $membre;
+
+        return $this;
     }
 
     /**
-     * @param mixed $id_membre
+     * Get membre
+     *
+     * @return \AppBundle\Entity\User
      */
-    public function setIdMembre($id_membre)
+    public function getMembre()
     {
-        $this->id_membre = $id_membre;
+        return $this->membre;
     }
-
-
-
 }
-

@@ -1,5 +1,5 @@
+{#
 {% extends "@FOSUser/layout.html.twig" %}
-
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
@@ -8,3 +8,8 @@
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
 {% endblock fos_user_content %}
+#}
+
+<script type="text/javascript">
+    window.location.href = "{{ path('homepage') }}" ;
+</script>

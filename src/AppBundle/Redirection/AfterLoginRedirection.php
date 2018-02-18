@@ -2,6 +2,7 @@
 
 
 namespace AppBundle\Redirection;
+
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -12,17 +13,21 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 {
     /** * @var \Symfony\Component\Routing\RouterInterface */
     private $router;
+
     /** * @param RouterInterface $router */
-    public function __construct(RouterInterface $router){
+    public function __construct(RouterInterface $router)
+    {
         $this->router = $router;
     }
+
     /** * @param Request $request * @param TokenInterface $token * @return RedirectResponse */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token){
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token)
+    {
         $roles = $token->getRoles();
-        $rolesTab = array_map(function($role){
+        $rolesTab = array_map(function ($role) {
             return $role->getRole();
         }, $roles);
-        if (in_array('ROLE_ADMIN', $rolesTab, true) )
+        if (in_array('ROLE_ADMIN', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('backOffice'));
 
 
@@ -30,7 +35,6 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('app_homepage'));
         return $redirection;
     }
-
 
 
 }

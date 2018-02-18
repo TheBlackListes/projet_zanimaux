@@ -1,7 +1,3 @@
-animaux_animaux:
-    resource: "@AnimauxBundle/Resources/config/routing/animaux.yml"
-    prefix:   /animaux
-
 animaux_homepage:
     path:     /
     defaults: { _controller: AnimauxBundle:Default:index }
