@@ -42,14 +42,12 @@
                                     </button>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <a href="{{ path('fos_user_profile_show')}}">
+                                        <a href="{{ path('fos_user_profile_show')}}"></a>
                                         <li><a href="{{ path('fos_user_profile_show')}}">Profil</a></li>
                                         <li><a href="">Edit Profil</a></li>
                                         <li><a href=""> mes Annonces</a></li>
-                                        <li><a href=""> mes Animaux</a></li>
-                                        <li><a class="" href=""> mes produits
-                                            </a>
-                                        </li>
+                                        <li><a href="{{ path('animaux_User_List') }}"> mes Animaux</a></li>
+                                        <li><a class="" href=""> mes produits</a></li>
                                         <li>
                                             <a href="{{ path('fos_user_security_logout') }}">
                                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

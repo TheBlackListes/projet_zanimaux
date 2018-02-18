@@ -1,0 +1,221 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Submit Property</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Submit Property</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- Submit Property start -->
+    <div class="submit-property">
+        <div class="container">
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="submit-address">
+                        <p1>{{ form_errors(form) }}</p1>
+
+                        <form method="post" action="{{ path('animaux_Ajouter') }}">
+
+                            <h1>Ajout d'un nouvel animal</h1>
+                            <div class="search-contents-sidebar">
+
+                                <div class="form-group">
+                                    <label>Nom de l'animal</label>
+                                    {{ form_widget(form.nom) }}
+                                    <input type="text" class="input-text" name="your name" placeholder="nom">
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Type de l'offre</label>
+                                            <select class="selectpicker search-fields">
+                                                <option>{{ form_widget(form.type_offre) }}vente</option>
+                                                <option>{{ form_widget(form.type_offre) }}adoption</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Prix</label>
+                                            {{ form_widget(form.prix) }}
+                                            <input type="text" class="input-text" name="your name" placeholder="$">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Type de l'animal</label>
+                                            <select class="selectpicker search-fields">
+                                                <option>{{ form_widget(form.type_animal) }}Chat</option>
+                                                <option>{{ form_widget(form.type_animal) }}Chien</option>
+                                                <option>{{ form_widget(form.type_animal) }}Rongeur</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Race</label>
+                                            {{ form_widget(form.prix) }}
+                                            <input type="text" class="input-text" name="your name" placeholder="Race">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Sexe</label>
+                                            <select class="selectpicker search-fields">
+                                                <option>{{ form_widget(form.sexe) }} Mâle </option>
+                                                <option>{{ form_widget(form.sexe) }} Femelle </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            {{ form_widget(form.prix) }}
+                                            <input type="text" class="input-text" name="your name" placeholder="Age">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Taille</label>
+                                            <select class="selectpicker search-fields">
+                                                <option>{{ form_widget(form.sexe) }} Petit</option>
+                                                <option>{{ form_widget(form.sexe) }} Moyen</option>
+                                                <option>{{ form_widget(form.sexe) }} Grand</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Poids</label>
+                                            {{ form_widget(form.poids) }}
+                                            <input type="text" class="input-text" name="your name" placeholder="Poids">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <h1>Photo principale</h1>
+                            {{ form_widget(form.photo) }}
+                            <div id="myDropZone" class="dropzone dropzone-design">
+                                <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                            </div>
+
+                            <h1>Description</h1>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Présentez votre animal</label>
+                                        {{ form_widget(form.description) }}
+                                        <textarea class="input-text" name="message" placeholder="Detailed Information"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h1>Caractère</h1>
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Energie</label>
+                                        <select class="selectpicker search-fields">
+                                            <option>{{ form_widget(form.energie) }} 1</option>
+                                            <option>{{ form_widget(form.energie) }} 2</option>
+                                            <option>{{ form_widget(form.energie) }} 3</option>
+                                            <option>{{ form_widget(form.energie) }} 4</option>
+                                            <option>{{ form_widget(form.energie) }} 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Sociabilité</label>
+                                        <select class="selectpicker search-fields">
+                                            <option>{{ form_widget(form.sociabilite) }} 1</option>
+                                            <option>{{ form_widget(form.sociabilite) }} 2</option>
+                                            <option>{{ form_widget(form.sociabilite) }} 3</option>
+                                            <option>{{ form_widget(form.sociabilite) }} 4</option>
+                                            <option>{{ form_widget(form.sociabilite) }} 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Force</label>
+                                        <select class="selectpicker search-fields">
+                                            <option>{{ form_widget(form.forceX) }} 1</option>
+                                            <option>{{ form_widget(form.forceX) }} 2</option>
+                                            <option>{{ form_widget(form.forceX) }} 3</option>
+                                            <option>{{ form_widget(form.forceX) }} 4</option>
+                                            <option>{{ form_widget(form.forceX) }} 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Intelligence</label>
+                                        <select class="selectpicker search-fields">
+                                            <option>{{ form_widget(form.intelligence) }} 1</option>
+                                            <option>{{ form_widget(form.intelligence) }} 2</option>
+                                            <option>{{ form_widget(form.intelligence) }} 3</option>
+                                            <option>{{ form_widget(form.intelligence) }} 4</option>
+                                            <option>{{ form_widget(form.intelligence) }} 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Ajouter" onclick="animaux_User_List" class="btn button-md button-theme"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Submit Property end -->
+
+{% endblock %}

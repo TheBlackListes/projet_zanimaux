@@ -5,6 +5,10 @@ namespace AnimauxBundle\Controller;
 use AnimauxBundle\Entity\Animaux;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use AnimauxBundle\Form\AnimauxType;
+use AnimauxBundle\Form\AnimauxForm;
+use AppBundle\Entity\User;
 
 /**
  * Animaux controller.
@@ -53,8 +57,9 @@ class AnimauxController extends Controller
 
     public function memberPetsListAction(Request $request)
     {
-        $id_user=2;
+        //$id_user=2;
         //$id_user=$request->get('proprietaire');
+        $id_user=$this->getUser();
         $em = $this->getDoctrine()->getManager();
 
         $animauxes = $em->getRepository('AnimauxBundle:Animaux')->afficheAnimauxUser($id_user);
@@ -76,33 +81,31 @@ class AnimauxController extends Controller
         ));
     }
 
+    /**
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+
     public function ajouterAnimalAction(Request $request)
     {
-        $animal=new Animaux();
-        if($request->isMethod('POST'))
-        {
-            $animal->setNom($request->get('nom'));
-            $animal->setAge($request->get('age'));
-            $animal->setDescription($request->get('description'));
-            $animal->setEnergie($request->get('energie'));
-            $animal->setForceX($request->get('forceX'));
-            $animal->setIntelligence($request->get('intelligence'));
-            $animal->setSociabilite($request->get('sociabilite'));
-            $animal->setPhoto($request->get('photo'));
-            $animal->setPoids($request->get('poid'));
-            $animal->setPrix($request->get('prix'));
-            $animal->setRace($request->get('race'));
-            $animal->setSexe($request->get('sexe'));
-            $animal->setTaille($request->get('taille'));
-            $animal->setTypeAnimal($request->get('typeanimal'));
-            $animal->setTypeOffre($request->get('typeoffre'));
-            $animal->setProprietaire($request->get('proprietaire'));
+        $animaux = new Animaux();
+        $form = $this->createForm('AnimauxBundle\Form\AnimauxForm', $animaux);
+        $form->handleRequest($request);
+        $user=$this->getUser();
 
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($animal);
+        if ($request->isMethod('Post')) {
+            $animaux=$form->getData();
+            $animaux->setProprietaire($user);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($animaux);
             $em->flush();
+
+            return $this->redirectToRoute('animaux_User_Pets_description', array('id' => $animaux->getId()));
         }
-        return $this->render('animaux/Front/memberPetsList.html.twig',array());
+
+        return $this->render('animaux/Front/FormulaireAjoutAnimal.html.twig', array(
+            'animaux' => $animaux,
+            'form' => $form->createView(),
+        ));
     }
 
     /**

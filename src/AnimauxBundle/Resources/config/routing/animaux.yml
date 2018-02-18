@@ -18,6 +18,11 @@ animaux_User_Pets_description:
     defaults: { _controller: "AnimauxBundle:Animaux:memberPetsListDescription" }
     methods:  GET
 
+animaux_Ajouter:
+    path:     /addPet
+    defaults: { _controller: "AnimauxBundle:Animaux:ajouterAnimal" }
+    methods:  [GET, POST]
+
 animaux_index:
     path:     /
     defaults: { _controller: "AnimauxBundle:Animaux:index" }

@@ -29,8 +29,7 @@ class AnimauxForm extends AbstractType
             ->add('intelligence')
             ->add('photo')
             ->add('type_offre')
-            ->add('prix')
-            ->add('proprietaire');
+            ->add('prix');
     }/**
      * {@inheritdoc}
      */
