@@ -1,100 +1,85 @@
 {% extends 'front_office/base.html.twig' %}
-
+{% trans_default_domain 'FOSUserBundle' %}
 {% block body %}
-
-<!--
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" onclick="event_index" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('event_index') }}">Back to the list</a>
-        </li>
-    </ul>
--->
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
 
 
-<!-- Sub banner start -->
-<div class="sub-banner">
-    <div class="overlay">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li class="active">Annonce</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-profile">
         <div class="container">
-            <div class="breadcrumb-area">
-                <div class="top">
-                    <h1>Submit Property</h1>
-                </div>
-                <ul class="breadcrumbs">
-                    <li><a href="index-2.html">Home</a></li>
-                    <li class="active">Submit Property</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Sub Banner end -->
 
-<!-- Submit Property start -->
-<div class="submit-property">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="notification-box">
-                    <h3>Don't Have an Account?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae accumsan.</p>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="submit-address">
-                    <p1>{{ form_errors(form) }}</p1>
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
 
-                    <form method="post" action="{{ path('event_new') }}">
-                        <h1>Ajouter un evenement</h1>
-                        <div class="search-contents-sidebar">
-                            <div class="form-group">
-                                <label>Nom d'evenement</label>
-                                {{ form_widget(form.nom) }}
-                                <input type="text" class="input-text" name="your name" placeholder="evenement nom">
-                            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>Ajouter un evenement</h1>
 
-                            <div class="form-group">
-                                <label>Lieu</label>
-                                {{ form_widget(form.lieu) }}
-                                <input type="text" class="input-text" name="your name" placeholder="evenment liu">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Date</label>
-                                {{ form_widget(form.date) }}
-                                <input type="text" class="input-text" name="your name" placeholder="evenment liu">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Nombre des Participant</label>
-                                {{ form_widget(form.nbrMaxParticipant) }}
-                                <input type="text" class="input-text" name="your name" placeholder="Property Title">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label>Description de l'evenement</label>
-                                {{ form_widget(form.description) }}
-                                <textarea class="input-text" name="message" placeholder="Detailed Information"></textarea>
-                            </div>
-
-                            <div class="col-md-12">
-                                {{ form_widget(form._token) }}
-
-                                <input type="submit" value="Ajouter" onclick="event_index" class="btn button-md button-theme"/>
-                            </div>
-
+                    <form action="" method="POST" >
+                        <div class="form-group col-sm-6">
+                            <label>Nom de l'evenement</label>
+                            {{ form_widget(form.nom , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.nom) }}</span>
                         </div>
-                    </form>
+                        <div class="form-group col-sm-6">
+                            <label >Lieu</label>
+                            {{ form_widget(form.lieu , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.lieu) }}</span>
+                        </div>
+                        <div class="form-group" style="font-size: 18px">
+                            <label>Date:</label>
+                            {{ form_widget(form.date ) }}
+                            <span style="color: red">{{ form_errors(form.date) }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre des participants</label>
+                            {{ form_widget(form.nbrMaxParticipant , { 'attr': {'class': 'form-control'} })  }}
+                            <span style="color: red">{{ form_errors(form.nbrMaxParticipant) }}</span>
+                        </div>
 
+                        <div class="form-group">
+                            <label>Description</label>
+                            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} })  }}
+                            <span style="color: red">{{ form_errors(form.description) }}</span>
+                        </div>
+
+
+                        <br clear="left"><br>
+                        <input class="btn button-md button-theme" type="submit" value="Ajouter">
+                    </form>
                 </div>
+                <!-- My address end -->
             </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- Avatar start -->
+                <div class="edit-profile-photo">
+                    <img src="img/agent-1.jpg" alt="agent-1" class="img-responsive">
+                    <div class="change-photo-btn">
+                        <div class="photoUpload">
+                            <span><i class="fa fa-upload"></i> Upload Photo</span>
+                            <input type="file" class="upload">
+                        </div>
+                    </div>
+                </div>
+                <!-- Avatar end -->
+            </div>
+
+
         </div>
     </div>
-</div>
-<!-- Submit Property end -->
-{% endblock %}
+
+{% endblock body %}

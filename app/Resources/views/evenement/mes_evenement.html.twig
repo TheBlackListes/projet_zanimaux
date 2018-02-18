@@ -1,0 +1,112 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block titre %}
+
+    <title>mes evenement personel</title>
+{% endblock %}
+
+{% block body %}
+
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+                <div class="top">
+                    <h1>My Properties</h1>
+                </div>
+                <ul class="breadcrumbs">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">My Properties</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+
+<!-- My Propertiess start -->
+<div class="my-propertiess">
+    <div class="container">
+        <div class="row">
+
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+            <div class="col-lg-9 col-md-9 col-sm-12">
+                <!-- Heading -->
+                <h1 class="heading">My Properties Listings</h1>
+                <!-- My propertiess box start -->
+                {% for evenement in evenements %}
+
+                <div class="my-properties-box wow fadeInUp delay-03s clearfix">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-pad my-propertie-theme">
+                        <img src="img/properties/my-properties-1.jpg" alt="my-properties-1" class="img-responsive">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-pad">
+                        <div class="detail">
+                            <!-- Header -->
+                            <header class="clearfix">
+                                <div class="pull-left">
+                                    <h1 class="title">
+                                        <a href="{{ path('event_show', { 'id': evenement.id }) }}">{{ evenement.nom }}</a>
+                                    </h1>
+                                    <h3 class="location">
+                                        <a href="#">
+                                            <i class="fa fa-map-marker"></i>{{ evenement.lieu }}
+                                        </a>
+                                    </h3>
+                                </div>
+                                <!-- Btn -->
+                                <div class="pull-right">
+                                    <a href="#" class="button-sm button-theme">Details</a>
+                                </div>
+                            </header>
+                            <hr>
+                            <p>{{ evenement.description }} </p>
+                        </div>
+                        <!-- footer -->
+                        <div class="footer clearfix">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="price">
+                                    900
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="date">
+                                    {{ evenement.date|date }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="listing-meta ">
+                                    <span>
+                                        <a href="{{ path('event_edit', { 'id': evenement.id }) }}">
+                                            <i class="fa fa-pencil"></i>Edit
+                                        </a>
+                                    </span>
+                                    <span>
+                                        <a href="#">
+                                            <i class="fa fa-eye-slash"></i>Hide
+                                        </a>
+                                    </span>
+                                    <span>
+                                        <a href="{{ path('event_delete', { 'id': evenement.id }) }}">
+                                            <i class="fa fa-remove"></i>Delete
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+                <!-- My propertiess box end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- My Propertiess end -->
+{% endblock %}

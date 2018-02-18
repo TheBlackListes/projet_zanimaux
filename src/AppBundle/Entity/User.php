@@ -39,6 +39,14 @@ class User extends BaseUser
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+
+
+    /**
      * @return string
      */
     public function getImage()
@@ -85,6 +93,22 @@ class User extends BaseUser
     public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param string $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 
 

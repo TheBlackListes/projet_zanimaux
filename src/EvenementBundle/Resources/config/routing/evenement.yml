@@ -8,6 +8,14 @@ event1_index:
     defaults: { _controller: "EvenementBundle:Evenement:index1" }
     methods:  GET
 
+
+
+event_mesevenement:
+    path:     /mesevenement
+    defaults: { _controller: "EvenementBundle:Evenement:mesevenement" }
+    methods:  GET
+
+
 event_show:
     path:     /{id}/show
     defaults: { _controller: "EvenementBundle:Evenement:show" }
@@ -17,6 +25,8 @@ event_new:
     path:     /new
     defaults: { _controller: "EvenementBundle:Evenement:new" }
     methods:  [GET, POST]
+
+
 
 event_edit:
     path:     /{id}/edit

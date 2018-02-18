@@ -12,16 +12,17 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sexe',ChoiceType::class, array(
-        'choices' => array(
-            'Homme' => 'H',
-            'Femme' => 'F',
 
-        )
-    ))
-          ->add('image')
+            ->add('sexe',ChoiceType::class, array(
+                'choices' => array(
+                    'Homme' => 'H',
+                    'Femme' => 'F',
+                )
+            ))
+
+            ->add('image')
             ->add('telephone')
-        ;
+            ->add('ville');
     }
 
     public function getParent()

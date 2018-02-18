@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new EvenementBundle\EvenementBundle(),
             new ProduitBundle\ProduitBundle(),
             new VeterinaireBundle\VeterinaireBundle(),
-
             new MagasinBundle\MagasinBundle(),
             new AnimauxBundle\AnimauxBundle(),
             new AnnonceBundle\AnnonceBundle(),

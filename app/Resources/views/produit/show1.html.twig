@@ -1,0 +1,49 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+
+    <div class="listing-properties-box wow fadeInUp delay-03s" >
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 listing-propertie-theme">
+        <img src="{{ asset('frontOffice/assets/img/properties/properties-3.jpg') }}" alt="properties-3" class="img-responsive">
+        <!-- Tag
+        <span class="tag-f-left">
+                    <a href="properties-details.html">Featured</a>
+                </span>
+        <span class="tag-s-right">
+                    <a href="properties-details.html">For Sale</a>
+                </span>
+                -->
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 detail">
+    <!-- Header -->
+    <header class="clearfix">
+        <div class="pull-left">
+            <h1 class="title">
+                {{ produit.libelle }}
+            </h1>
+            <h3 class="location">
+                <a href="#">
+                    <i class="fa fa-map-marker"></i>{{ produit.prix }}
+                </a>
+            </h3>
+            <!--<h3 class="location">
+                <a href="#">
+                    <i class="fa fa-calendar-o"></i> f %}
+                </a>
+            </h3>-->
+        </div>
+        <!-- Btn -->
+        <div class="pull-right">
+            <a href="properties-details.html" class="button-sm button-theme">Details</a>
+        </div>
+    </header>
+    <!-- Facilities list start -->
+    <ul class="facilities-list clearfix">
+        <li class="bordered-right">
+            <i ></i>
+            <span>{{ produit.marque }}</span>
+        </li>
+
+    </ul>
+
+{% endblock %}

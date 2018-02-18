@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Evenement
  *
  * @ORM\Table(name="evenement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="EvenementBundle\Repository\EvenementRepository")
  */
 class Evenement
 {
@@ -25,7 +25,7 @@ class Evenement
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_membre", referencedColumnName="id", nullable=false)
+     *   @ORM\JoinColumn(name="id_membre", referencedColumnName="id", nullable=true)
      * })
      */
     private $id_membre;

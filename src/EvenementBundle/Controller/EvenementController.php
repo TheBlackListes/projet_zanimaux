@@ -4,8 +4,14 @@ namespace EvenementBundle\Controller;
 
 use EvenementBundle\Entity\Evenement;
 use EvenementBundle\Form\EvenementType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\User;
+
+
+
+
 
 /**
  * Evenement controller.
@@ -28,6 +34,7 @@ class EvenementController extends Controller
         ));
     }
 
+
     /**
      * Lists all evenement entities.
      *
@@ -39,6 +46,19 @@ class EvenementController extends Controller
         $evenements = $em->getRepository('EvenementBundle:Evenement')->findAll();
 
         return $this->render('evenement/index1.html.twig', array(
+            'evenements' => $evenements,
+        ));
+    }
+
+    public function mesevenementAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $id_user=$this->getUser();
+
+        $evenements = $em->getRepository('EvenementBundle:Evenement')->afficherevenementUser($id_user);
+
+        return $this->render('evenement/mes_evenement.html.twig', array(
             'evenements' => $evenements,
         ));
     }
@@ -67,29 +87,38 @@ class EvenementController extends Controller
         ));
     }
 */
+
+    /**
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
     public function newAction(Request $request)
     {
         $evenement = new Evenement();
+
+
+        $user=$this->getUser();
+
+
+
         $form = $this->createForm('EvenementBundle\Form\EvenementType', $evenement);
-        $form->handleRequest($request);
+
         if($request->isMethod('Post'))
         { $form->handleRequest($request);
+                        $evenement = $form->getData();
+            $evenement->setIdMembre($user);
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($evenement);
+                        $em->flush();
 
-
-        if ($form->isValid()) {
-            $evenement = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($evenement);
-            $em->flush();
-
-            return $this->redirectToRoute('evenement_show', array('id' => $evenement->getId()));
-        }
+                        return $this->redirectToRoute('event_show', array('id' => $evenement->getId()));
             }
         return $this->render('evenement/new.html.twig', array(
             'evenement' => $evenement,
             'form' => $form->createView(),
         ));
     }
+
+
 
 
     /**

@@ -52,14 +52,15 @@ class ProduitController extends Controller
             $em->persist($produit);
             $em->flush();
 
-            return $this->redirectToRoute('produit_show', array('idproduit' => $produit->getIdproduit()));
+            return $this->redirectToRoute('Produit_show', array('idproduit' => $produit->getIdproduit()));
         }
 
-        return $this->render('produit/test.html.twig', array(
+        return $this->render('produit/neww.html.twig', array(
             'produit' => $produit,
             'form' => $form->createView(),
         ));
     }
+
 
 
 
@@ -73,7 +74,7 @@ class ProduitController extends Controller
     {
         $deleteForm = $this->createDeleteForm($produit);
 
-        return $this->render('produit/show.html.twig', array(
+        return $this->render('produit/show1.html.twig', array(
             'produit' => $produit,
             'delete_form' => $deleteForm->createView(),
         ));
