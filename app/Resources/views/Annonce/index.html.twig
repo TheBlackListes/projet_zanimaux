@@ -1,0 +1,81 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li class="active">Liste des Annonces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="properties-section-body content-area">
+    <div class="container">
+        <div class="row">
+    {% for annonce in annonces %}
+    <div class="col-lg-4 col-md-4 col-sm-6 wow fadeInUp delay-03s" >
+
+        <div class="thumbnail recent-properties-box">
+            <!-- Detail -->
+            <div class="caption detail">
+                <!-- Header -->
+                <header class="clearfix">
+                    <div class="pull-left">
+                        <h1 class="title">
+                            <span>{{  annonce.type }}</span>
+
+                            <a href="{{ path('annonce_show', { 'id': annonce.id }) }}"><i class="fa fa-eye text-success"></i></a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="{{ path('annonce_edit', { 'id': annonce.id }) }}"><i class="fa fa-pencil text-primary"></i></a>
+                        </h1>
+                    </div>
+                </header>
+                <!-- Location -->
+                <h3 class="location">
+                    <a href="#">
+                        <i class="lnr-home"></i>{{ annonce.cause }}
+                    </a>
+                </h3>
+                <!-- Facilities List -->
+                <ul class="facilities-list clearfix">
+
+                    <li>
+                        <i class="lnr-clock"></i>
+                        <span>{{ annonce.periode }}</span>
+                    </li>
+                    <li>
+                        <i class="lnr-calendar-full"></i>
+                        <span>{% if annonce.date %}{{ annonce.date|date('Y-m-d') }}{% endif %}</span>
+                    </li>
+                    <li>
+                        <i class="lnr-map-marker"></i>
+                        <span> {{ annonce.region }}</span>
+                    </li>
+                </ul>
+                <!-- Footer -->
+                <div class="footer">
+                    <a href="#">
+                        <i class="fa fa-user"></i> {{ annonce.membre.username }}
+                    </a>
+                    <span>
+                        <i class="fa fa-calendar-o"></i> {{ annonce.tel }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
