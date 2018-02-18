@@ -1,0 +1,50 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block body %}
+    <h1>Annonces list</h1>
+
+    <table class="table table-responsive">
+        <thead>
+        <tr>
+            <th>Idannonce</th>
+            <th>Type</th>
+            <th>Cause</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Region</th>
+            <th>Date</th>
+            <th>Tel</th>
+            <th>Periode</th>
+            <th>Membre</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td><a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.id }}</a></td>
+                <td>{{ annonce.type }}</td>
+                <td>{{ annonce.cause }}</td>
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.description }}</td>
+                <td>{{ annonce.region }}</td>
+                <td>{% if annonce.date %}{{ annonce.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ annonce.tel }}</td>
+                <td>{{ annonce.periode }}</td>
+                <td>{{ annonce.membre.username }}</td>
+                <td>
+                    <a href="{{ path('annonce_show', { 'id': annonce.id }) }}"><i class="fa fa-eye text-success"></i></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('annonce_edit', { 'id': annonce.id }) }}"><i class="fa fa-pencil text-primary"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('annonce_new') }}">Create a new annonce</a>
+        </li>
+    </ul>
+{% endblock %}
