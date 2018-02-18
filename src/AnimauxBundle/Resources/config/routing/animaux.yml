@@ -1,0 +1,49 @@
+animaux_index_front_List:
+    path:     /liste/{type_offre}
+    defaults: { _controller: "AnimauxBundle:Animaux:afficheAnimaux" }
+    methods:  GET
+
+animaux_index_front_description:
+    path:     /description/{id}
+    defaults: { _controller: "AnimauxBundle:Animaux:afficheDescription" }
+    methods:  GET
+
+animaux_User_List:
+    path:     /mypets
+    defaults: { _controller: "AnimauxBundle:Animaux:memberPetsList" }
+    methods:  GET
+
+animaux_User_Pets_description:
+    path:     /mypetsdescription/{id}
+    defaults: { _controller: "AnimauxBundle:Animaux:memberPetsListDescription" }
+    methods:  GET
+
+animaux_Ajouter:
+    path:     /addPet
+    defaults: { _controller: "AnimauxBundle:Animaux:ajouterAnimal" }
+    methods:  [GET, POST]
+
+animaux_index:
+    path:     /
+    defaults: { _controller: "AnimauxBundle:Animaux:index" }
+    methods:  GET
+
+animaux_show:
+    path:     /{id}/show
+    defaults: { _controller: "AnimauxBundle:Animaux:show" }
+    methods:  GET
+
+animaux_new:
+    path:     /new
+    defaults: { _controller: "AnimauxBundle:Animaux:new" }
+    methods:  [GET, POST]
+
+animaux_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AnimauxBundle:Animaux:edit" }
+    methods:  [GET, POST]
+
+animaux_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AnimauxBundle:Animaux:delete" }
+    methods:  DELETE

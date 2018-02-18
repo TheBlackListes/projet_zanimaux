@@ -1,0 +1,143 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+
+
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li class="active">Annonce</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-profile">
+        <div class="container">
+
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>Ajout d'un nouvel animal</h1>
+
+                    <form action="" method="POST" >
+
+                        <div class="form-group col-sm-6">
+                            <label>Nom de l'animal</label>
+                            {{ form_widget(form.nom , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.nom) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Type animal</label>
+                            {{ form_widget(form.type_animal , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.type_animal) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Type offre</label>
+                            {{ form_widget(form.type_offre , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.type_offre) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Race</label>
+                            {{ form_widget(form.race , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.race) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>sexe</label>
+                            {{ form_widget(form.sexe , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.sexe) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>age</label>
+                            {{ form_widget(form.age , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.age) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Taille</label>
+                            {{ form_widget(form.taille , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.taille) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Poids</label>
+                            {{ form_widget(form.poids , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.poids) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Description</label>
+                            {{ form_widget(form.description , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.description) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>Energie</label>
+                            {{ form_widget(form.energie , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.energie) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Force</label>
+                            {{ form_widget(form.forceX , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.forceX) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>sociabilite</label>
+                            {{ form_widget(form.sociabilite , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.sociabilite) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>intelligence</label>
+                            {{ form_widget(form.intelligence , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.intelligence) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label>photo</label>
+                            {{ form_widget(form.photo , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.photo) }}</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>prix</label>
+                            {{ form_widget(form.prix , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.prix) }}</span>
+                        </div>
+
+
+                        <br clear="left"><br>
+                        <input class="btn button-md button-theme" type="submit" value="Ajouter">
+                    </form>
+                </div>
+                <!-- My address end -->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- Avatar start -->
+                <div class="edit-profile-photo">
+                    <img src="img/agent-1.jpg" alt="agent-1" class="img-responsive">
+                    <div class="change-photo-btn">
+                        <div class="photoUpload">
+                            <span><i class="fa fa-upload"></i> Upload Photo</span>
+                            <input type="file" class="upload">
+                        </div>
+                    </div>
+                </div>
+                <!-- Avatar end -->
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock body %}

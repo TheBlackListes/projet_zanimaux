@@ -1,0 +1,298 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <div class="page_loader"></div>
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Agent Listing</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Agent Listing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- About team meet start -->
+    <div class="about-team-meet">
+        <div class="container">
+            <!-- Heading -->
+            <h1 class="heading">Agent Listing</h1>
+            <div class="row">
+                {% for animaux in animauxes %}
+                <div class="col-lg-4 col-md-4 col-md-4 col-sm-4 col-xs-12 clearfix">
+                    <!-- About box start -->
+                    <div class="thumbnail about-box wow fadeInLeft delay-03s">
+                        <img src="{{ animaux.photo }}" alt="team-1" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <h6>{{ animaux.typeanimal }}</h6>
+                            <h3><a href="{{ path('animaux_User_Pets_description',{ 'id': animaux.id }) }}">{{ animaux.nom }}</a></h3>
+                            <!-- contact -->
+                            <div class="contact">
+                                <p>
+                                    <i class="fa fa-envelope-o"></i>
+                                    <a href="mailto:info@themevessel.com">Date</a>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile"></i><a href="tel:+55417-634-7071">{{ animaux.typeoffre }}</a>
+                                </p>
+                            </div>
+                            <!-- footer -->
+                            <!-- social List -->
+                            <ul class="social-list clearfix">
+                                <li>
+                                    <a href="#" class="facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="rss">
+                                        <i class="fa fa-rss"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- button-btn -->
+                        </div>
+                    </div>
+                    <!-- About box emd -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- About team meet end -->
+
+    <!-- Partners block start -->
+    <div class="partners-block">
+        <div class="container">
+
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="carousel our-partners slide" id="ourPartners">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="img/brand/audiojungle.png" alt="audiojungle">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="img/brand/themeforest.png" alt="themeforest">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="img/brand/tuts.png" alt="tuts">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="img/brand/graphicriver.png" alt="graphicriver">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="#">
+                                        <img src="img/brand/codecanyon.png" alt="codecanyon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#ourPartners" data-slide="prev"><i class="fa fa-chevron-left icon-prev"></i></a>
+                        <a class="right carousel-control" href="#ourPartners" data-slide="next"><i class="fa fa-chevron-right icon-next"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partners block end -->
+
+    <!-- Footer start -->
+    <footer class="main-footer clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 footer-item">
+                    <div class="footer-item-content">
+                        <a href="index-2.html" class="footer-logo">
+                            <img src="img/footer-logo.png" alt="footer-logo">
+                        </a>
+                        <div class="clearfix"></div>
+                        <!-- paragraph -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 footer-item">
+                    <div class="footer-item-content">
+                        <h2 class="title">Address</h2>
+                        <!-- Contact Info -->
+                        <ul class="contact-info">
+                            <li class="clearfix">
+                                <i class="fa fa-map-marker fa-lg"></i>
+                                <label>20/F Kathalbagan Green Road, Dhanmondi, Dhaka-1205</label>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-mobile fa-lg"></i>
+                                <label>+55 4XX-634-7071</label>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-envelope-o fa-lg"></i>
+                                <label>
+                                    <a href="mailto:info@themevessel.com">info@themevessel.com</a>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 footer-item clearfix">
+                    <div class="footer-item-content">
+                        <h2 class="title">Helpful Links</h2>
+                        <ul class="links">
+                            <li>
+                                <a href="#">Login</a>
+                            </li>
+                            <li>
+                                <a href="#">Register</a>
+                            </li>
+                            <li>
+                                <a href="#">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="#">My Account</a>
+                            </li>
+                            <li>
+                                <a href="#">Add Property</a>
+                            </li>
+                            <li>
+                                <a href="#">Pricing</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 footer-item clearfix">
+                    <div class="footer-item-content">
+                        <div class="newsletter">
+                            <h2 class="title">Newsletter</h2>
+                            <div class="f-text">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+
+                            <form action="#" method="post">
+                                <p>
+                                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your Email Address" required="">
+                                </p>
+
+                                <p>
+                                    <button type="submit" class="button-sm button-theme btn-block">Signup</button>
+
+                                </p>
+                            </form>
+                            <!-- / Newsletter Sign-Up -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+    <!-- Sub footer start -->
+    <div class="sub-footer">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="copy-right">
+                    &copy;  2017 <a href="http://themevessel.com/" target="_blank">Theme Vessel</a>. Trademarks and brands are the property of their respective owners.
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="social-list">
+                    <ul class="clearfix">
+                        <li class="twitter">
+                            <a href="http://twitter.com/mabuc" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="facebook">
+                            <a href="http://facebook.com/mabuc" target="_blank">
+                                <i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="youtube">
+                            <a href="http://youtube.com/" target="_blank">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </li>
+                        <li class="linkedin">
+                            <a href="http://linkedin.com/" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li class="pinterest">
+                            <a href="http://pinterest.com/mabuc" target="_blank">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li class="dribbble">
+                            <a href="http://dribbble.com/mabuc" target="_blank">
+                                <i class="fa fa-dribbble"></i>
+                            </a>
+                        </li>
+                        <li class="gplus">
+                            <a href="http://google.com/" target="_blank">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="instagram">
+                            <a href="http://instagram.com/envato" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="rss">
+                            <a href="http://feedburner.com/" target="_blank">
+                                <i class="fa fa-rss"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub footer end -->
+
+{% endblock %}
