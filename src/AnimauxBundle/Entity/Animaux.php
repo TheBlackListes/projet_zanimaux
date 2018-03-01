@@ -66,20 +66,6 @@ class Animaux
     /**
      * @var string
      *
-     * @ORM\Column(name="taille", type="string", length=255, nullable=false)
-     */
-    private $taille;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="poids", type="string", length=255, nullable=false)
-     */
-    private $poids;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
@@ -125,6 +111,29 @@ class Animaux
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=true)
      */
     private $prix;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date",type="date", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="integer",type="string", length=255 , nullable=true)
+     */
+    private $etat = 'valide';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="visite", type="integer", nullable=true)
+     */
+    private $visite = '0';
+
+
 
     /**
      *
@@ -250,38 +259,6 @@ class Animaux
     /**
      * @return string
      */
-    public function getTaille()
-    {
-        return $this->taille;
-    }
-
-    /**
-     * @param string $taille
-     */
-    public function setTaille($taille)
-    {
-        $this->taille = $taille;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPoids()
-    {
-        return $this->poids;
-    }
-
-    /**
-     * @param string $poids
-     */
-    public function setPoids($poids)
-    {
-        $this->poids = $poids;
-    }
-
-    /**
-     * @return string
-     */
     public function getDescription()
     {
         return $this->description;
@@ -390,6 +367,56 @@ class Animaux
     {
         $this->prix = $prix;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVisite()
+    {
+        return $this->visite;
+    }
+
+    /**
+     * @param int $visite
+     */
+    public function setVisite($visite)
+    {
+        $this->visite = $visite;
+    }
+
+
 
     /**
      * @return mixed

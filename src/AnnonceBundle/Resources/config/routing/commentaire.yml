@@ -1,0 +1,23 @@
+commentaire_index:
+    path:     /
+    defaults: { _controller: "AnnonceBundle:Commentaire:index" }
+    methods:  GET
+
+commentaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "AnnonceBundle:Commentaire:show" }
+    methods:  GET
+
+commentaire_new:
+    path:     /new
+    defaults: { _controller: "AnnonceBundle:Commentaire:new" }
+    methods:  [GET, POST]
+
+commentaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AnnonceBundle:Commentaire:edit" }
+    methods:  [GET, POST]
+
+commentaire_delete:
+    path:     /delete/{id}
+    defaults: { _controller: "AnnonceBundle:Commentaire:delete" }

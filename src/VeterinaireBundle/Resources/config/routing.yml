@@ -1,7 +1,48 @@
-veterinaire_veterinaire:
-    resource: "@VeterinaireBundle/Resources/config/routing/veterinaire.yml"
-    prefix:   /veterinaire
+veterinaire_index:
+    path:     /vets
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:index" }
 
-veterinaire_homepage:
+veterinaire_index_back:
+    path:     /list_veterinaire
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:indexVeterinaire_back" }
+
+veterinaire_afficher:
+    path:     /{id}/show
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:listVeterinaire" }
+
+veterinaire_affiche_back:
+    path:     /{id}/afficherVet_back
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:showVeterinaire_back" }
+
+veterinaire_ajouter:
     path:     /
-    defaults: { _controller: VeterinaireBundle:Default:index }
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:ajoutVeterinaire" }
+
+veterinaire_modification:
+    path:     /{id}/modifVet
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:editVeterinaire" }
+
+veterinaire_delete:
+    path:     /{id}/deleteVet
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:deleteVeterinaire" }
+
+veterinaire_afficheVet_front:
+    path:     /{id}/showVet_front
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:showVeterinaire_front" }
+
+notevet:
+    path:     /{idv}/{note}/showVet_front
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:note" }
+recherecher_veterinaire:
+    path:     /veterinaire_plus_noté
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:afficherVeterinairePlusNoté" }
+note2vet:
+    path:     /{idv}/{note}/show_single_Vet_front
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:note2" }
+generation_pdf:
+    path:     /{id}/pdf
+    defaults: { _controller: "VeterinaireBundle:Veterinaire:Pdf" }
+
+
+
+

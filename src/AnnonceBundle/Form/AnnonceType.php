@@ -5,6 +5,9 @@ namespace AnnonceBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,27 +19,23 @@ class AnnonceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('titre')
             ->add('type', ChoiceType::class, array(
         'choices' => array(
-            'Gardre des animaux' => 'Garde des animaux',
-            'publicité de perdu' => 'publicité de perdu',
-
-        )
-    ))
-            ->add('cause', ChoiceType::class, array(
+            'Garde des animaux' => 'Garde des animaux',
+            'Animal perdu' => 'Animal perdu',
+            'Promenade des animaux' => 'Promenade des animaux',)))
+            ->add('service',ChoiceType::class, array(
                 'choices' => array(
-                    'gareder des animaus au domicile du pet-sitter' => '1',
-                    'gareder des animaus à mon domicile' => '2',
-                    'Promenade des animaux' => '3',
+                    'Offre' => 'Offre',
+                    'Demande' => 'Demande', )))
+            ->add('datePerdu',DateType::class,array('widget'=>'single_text','format'=>'yyyy-MM-dd'))
+            ->add('dateAnnonce',DateType::class,array('widget'=>'single_text','format'=>'yyyy-MM-dd'))
 
-                )
-            ))
-            ->add('titre')
-            ->add('description')
             ->add('region')
-            ->add('date')
-            ->add('tel')
             ->add('periode')
+            ->add('description')
+            ->add('image', FileType::class, array('data_class'=>null));
 
             ;
     }/**

@@ -1,0 +1,104 @@
+{% extends 'back_office/base.html.twig' %}
+
+    {% block titre %}
+        <title> Details Animal</title>
+    {% endblock %}
+
+{% block body %}
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <h2 class="title1">Tables des animaux</h2>
+                <div class="bs-example widget-shadow" data-example-id="contextual-table">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ animaux.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ animaux.nom }}</td>
+            </tr>
+            <tr>
+                <th>Type_animal</th>
+                <td>{{ animaux.typeanimal }}</td>
+            </tr>
+            <tr>
+                <th>Type_offre</th>
+                <td>{{ animaux.typeoffre }}</td>
+            </tr>
+            <tr>
+                <th>Race</th>
+                <td>{{ animaux.race }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ animaux.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ animaux.age }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ animaux.description }}</td>
+            </tr>
+            <tr>
+                <th>Energie</th>
+                <td>{{ animaux.energie }}</td>
+            </tr>
+            <tr>
+                <th>Force</th>
+                <td>{{ animaux.forceX }}</td>
+            </tr>
+            <tr>
+                <th>Sociabilite</th>
+                <td>{{ animaux.sociabilite }}</td>
+            </tr>
+            <tr>
+                <th>Intelligence</th>
+                <td>{{ animaux.intelligence }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ animaux.photo }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ animaux.prix }}</td>
+            </tr>
+            <tr>
+                <th>Proprietaire</th>
+                <td>{{ animaux.proprietaire }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ animaux.etat }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('animaux_index') }}">Retour à la liste</a>
+        </li>
+        {% if animaux.etat != 'valide' %}
+        <li>
+            <a href="{{ path('animaux_auriser', { 'id': animaux.id }) }}">Autoriser</a>
+        </li>
+        {% endif %}
+        {% if animaux.etat != 'bolque' %}
+        <li>
+            <a href="{{ path('animaux_bloquer', { 'id': animaux.id }) }}">Bloquer</a>
+        </li>
+        {% endif %}
+    </ul>
+
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

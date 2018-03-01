@@ -1,0 +1,151 @@
+{% extends 'front_office/base.html.twig' %}
+    {% block body %}
+        <!-- Sub banner start -->
+            <div class="sub-banner">
+                <div class="overlay">
+                    <div class="container">
+                        <div class="breadcrumb-area">
+                            <div class="top">
+                                <h1>Properties List Leftside</h1>
+                            </div>
+                            <ul class="breadcrumbs">
+                                <li><a href="index-2.html">Home</a></li>
+                                <li class="active">Properties List Leftside</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Sub Banner end -->
+
+        <!-- Properties section body start -->
+            <div class="properties-section-body content-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-xs-12 col-md-push-4">
+
+                            <!-- Option bar start -->
+                                <div class="option-bar">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-5 col-sm-5 col-xs-2">
+                                            <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-list"></i>
+                                </span>
+                                                <span class="hidden-xs">{{ type_offre }} </span>
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-6 col-md-7 col-sm-7 col-xs-10 cod-pad">
+                                            <div class="sorting-options">
+                                                <div class="sorting">
+                                                    <a href="{{ path('animaux_List_plus',{'type_offre':type_offre }) }}">Les plus Recents  </a> </br>
+                                                    <a href="{{ path('animaux_List_moin',{'type_offre':type_offre }) }}">Les plus anciens </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- Option bar end -->
+
+                            <!-- Listing properties start -->
+                            {% for animaux in animauxes %}
+                                {% if animaux.etat!='bloque' %}
+                                <div class="listing-properties-box wow fadeInUp delay-03s" >
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 listing-propertie-theme">
+
+                                        <img src="{{ asset('images/'~animaux.photo) }}" alt="properties-3" class="img-responsive">
+                                        <!-- Tag -->
+                                        <span class="tag-f-left">
+                                        <a href="{{ path('animaux_index_front_description', { 'id': animaux.id }) }}">{{ animaux.typeoffre }}</a>
+                                        </span>
+
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 detail">
+                                        <!-- Header -->
+                                        <header class="clearfix">
+                                            <div class="pull-left">
+
+                                                <h1 class="title">
+                                                    {{ animaux.nom }}</a>
+                                                </h1>
+
+                                                <h3 class="location">
+                                                    {{ animaux.typeanimal }}
+                                                </h3>
+                                            </div>
+                                            <!-- Btn -->
+                                            <div class="pull-right">
+                                                <a href="{{ path('animaux_index_front_description', { 'id': animaux.id }) }}" class="button-sm button-theme">Details</a>
+                                            </div>
+                                        </header>
+                                        <!-- Facilities list start -->
+                                        <ul class="facilities-list clearfix">
+                                            <li class="">
+                                                <i class=""></i>
+                                                <span>Race : {{ animaux.race }}</span>
+                                            </li>
+                                            <li>
+                                                <i class=""></i>
+                                                <span>Sexe : {{ animaux.sexe }} </span>
+                                            </li>
+                                            <li>
+                                                <i class=""></i>
+                                                <span>Age :  {{ animaux.age }}</span>
+                                            </li>
+                                            <li>
+                                                <i class=""></i>
+                                                <span>Prix :  {{ animaux.prix }}</span>
+                                            </li>
+                                        </ul>
+                                        <!-- footer -->
+                                        <div class="footer">
+                                            <a href="#">
+                                                <i class="fa fa-user"></i> {{ animaux.proprietaire }}
+                                            </a>
+                                            <span>
+                                <i class="fa fa-calendar-o"></i> {{ animaux.date|date }}
+                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+                            <!-- Listing properties end -->
+
+                            <!-- Page navigation start -->
+                               <!-- <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li>
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li>
+                                            <a href="#" aria-label="Next">
+                                                <span aria-hidden="true">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav> -->
+                            <div class="navigation">
+                                {{ knp_pagination_render(animauxes) }}
+                            </div>
+                            <!-- Page navigation end-->
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xs-12 col-md-pull-8">
+
+                            <!-- Search contents sidebar start -->
+                            {{ include('AnimauxBundle:animaux/Front:RechercheSidebar.html.twig') }}
+                            <!-- Search contents sidebar end -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Properties section body end -->
+    {% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+
+
+                    <div class="top">
+                        <h1>Mon profil</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li class="active">Produit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-profile">
+    <div class="container">
+
+    {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+    <div class="col-lg-6 col-md-6 col-sm-5">
+    <!-- My address start-->
+    <div class="my-address">
+    <h1>Ajouter un produit </h1>
+
+
+
+
+    {{ form_start(form)}}
+    {{ form_row(form.libelle)  }}
+    {{ form_row(form.marque)  }}
+    {{ form_row(form.categorie)  }}
+    {{ form_row(form.etat)  }}
+    {{ form_row(form.type)  }}
+    {{ form_row(form.image)  }}
+    {{ form_end(form) }}
+
+
+    </div>
+        <!-- My address end -->
+    </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+            <!-- Avatar start -->
+            <div class="edit-profile-photo">
+                <img src="{{ asset('images/alexey-ruban-233776.jpg') }}" alt="agent-1" class="img-responsive">
+                <div class="change-photo-btn">
+                    <div class="photoUpload">
+                        <span><i class="fa fa-upload"></i> Télécharger Une Photo</span>
+                        <input type="file" class="upload">
+                    </div>
+                </div>
+            </div>
+            <!-- Avatar end -->
+        </div>
+
+
+    </div>
+    </div>
+
+{% endblock %}
+
+
+
+

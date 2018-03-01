@@ -1,7 +1,77 @@
-animaux_animaux:
-    resource: "@AnimauxBundle/Resources/config/routing/animaux.yml"
-    prefix:   /animaux
-
 animaux_homepage:
     path:     /
     defaults: { _controller: AnimauxBundle:Default:index }
+
+animaux_index_front_List:
+    path:     /liste/{type_offre}
+    defaults: { _controller: AnimauxBundle:Animaux:afficheAnimaux }
+
+animaux_index_front_description:
+    path:     /description/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:afficheDescription }
+
+animaux_User_List:
+    path:     /mypets
+    defaults: { _controller: AnimauxBundle:Animaux:memberPetsList }
+
+animaux_User_Pets_description:
+    path:     /mypetsdescription/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:memberPetsListDescription }
+
+animaux_Ajouter:
+    path:     /addPet
+    defaults: { _controller: AnimauxBundle:Animaux:ajouterAnimal }
+
+animaux_modifier:
+    path:     /updatepet/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:modifierAnimal }
+
+animaux_supprimer:
+    path:     /deletepet/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:supprimerAnimal }
+
+animaux_reclamation:
+    path:     /reclamation/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:reclamer }
+
+animaux_mail:
+    path:     /mail/{id}
+    defaults: { _controller: AnimauxBundle:Animaux:sendMail }
+
+animaux_rechercheindex:
+    path:     /rechercher/
+    defaults: { _controller: AnimauxBundle:Animaux:rechercheIndex }
+
+animaux_List_plus:
+    path:     /listes/{type_offre}
+    defaults: { _controller: AnimauxBundle:Animaux:afficheplus }
+
+animaux_List_moin:
+    path:     /listee/{type_offre}
+    defaults: { _controller: AnimauxBundle:Animaux:affichemoin }
+
+
+
+
+animaux_index:
+    path:     /admin/index
+    defaults: { _controller: AnimauxBundle:AnimauxAdmin:index }
+
+animaux_admin_recherche:
+    path:     /admin/rechercheId
+    defaults: { _controller: AnimauxBundle:AnimauxAdmin:RechrcheIdDQL }
+
+animaux_show:
+    path:     /admin/{id}/show
+    defaults: { _controller: AnimauxBundle:AnimauxAdmin:show }
+
+animaux_auriser:
+    path:     /admin/{id}/valide
+    defaults: { _controller: AnimauxBundle:AnimauxAdmin:autoriserAnimal }
+
+animaux_bloquer:
+    path:     /admin/{id}/bloque
+    defaults: { _controller: AnimauxBundle:AnimauxAdmin:bloquerAnimal }
+
+
+

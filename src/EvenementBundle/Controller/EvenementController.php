@@ -3,54 +3,107 @@
 namespace EvenementBundle\Controller;
 
 use EvenementBundle\Entity\Evenement;
+use EvenementBundle\Entity\Participation;
 use EvenementBundle\Form\EvenementType;
+use EvenementBundle\Form\RechercherForm;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
+use Symfony\Component\Serializer\Encoder\JsonEncode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 
 
 
-/**
- * Evenement controller.
- *
- */
+
+
 class EvenementController extends Controller
 {
-    /**
-     * Lists all evenement entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
 
+    public function afficherlistAction(Request $request)
+    {
+        $id_user=$this->getUser();
+
+        $em = $this->getDoctrine()->getManager();
         $evenements = $em->getRepository('EvenementBundle:Evenement')->findAll();
 
-        return $this->render('evenement/index.html.twig', array(
+
+        $em2 = $this->getDoctrine()->getManager();
+        $evenements2 = $em2->getRepository('EvenementBundle:Evenement')->findbest();
+
+        $i=0;
+        $evenementbest=array();
+        foreach ($evenements2 as $evenement)
+        {
+            if($i<3)
+            {
+                array_push($evenementbest,$evenement);
+                $i= $i+1;
+            }
+        }
+
+
+        $em1 = $this->getDoctrine()->getManager();
+        $participations=$em1->getRepository('EvenementBundle:Participation')->findBy(array("id_user"=>$id_user));
+
+
+        return $this->render('EvenementBundle:evenement:index.html.twig', array(
             'evenements' => $evenements,
+            'evenementbest' => $evenementbest,
+            'participations'=>$participations,
+
+
+        ));
+    }
+
+    public function afficherlistbackAction(Request $request)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $evenements = $em->getRepository('EvenementBundle:Evenement')->findAll();
+
+
+
+        return $this->render('EvenementBundle:backoffice:affiche.html.twig', array(
+            'evenements' => $evenements,
+
+
+
+        ));
+    }
+
+    public function rechercheAction(Request $request)
+    {
+
+        $nom =$request->query->get('evenement');
+        $en = $this->getDoctrine()->getManager();
+        $evenements=$en->getRepository("EvenementBundle:Evenement")->findNom($nom);
+
+        $id_user=$this->getUser();
+        $em1 = $this->getDoctrine()->getManager();
+        $participations=$em1->getRepository('EvenementBundle:Participation')->findBy(array("id_user"=>$id_user));
+        return $this->render("EvenementBundle:evenement:index.html.twig",array(
+            'evenements' => $evenements,
+            'participations'=>$participations,
         ));
     }
 
 
-    /**
-     * Lists all evenement entities.
-     *
-     */
-    public function index1Action()
-    {
-        $em = $this->getDoctrine()->getManager();
 
-        $evenements = $em->getRepository('EvenementBundle:Evenement')->findAll();
 
-        return $this->render('evenement/index1.html.twig', array(
-            'evenements' => $evenements,
-        ));
-    }
 
-    public function mesevenementAction()
+
+    public function affichermesevenementAction()
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -58,90 +111,129 @@ class EvenementController extends Controller
 
         $evenements = $em->getRepository('EvenementBundle:Evenement')->afficherevenementUser($id_user);
 
-        return $this->render('evenement/mes_evenement.html.twig', array(
+        return $this->render('EvenementBundle:Evenement:mes_evenement.html.twig', array(
             'evenements' => $evenements,
         ));
     }
 
-    /**
-     * Creates a new evenement entity.
-     *
-     */
-/*  public function newAction(Request $request)
+    public function affichermesparticipationAction()
     {
-        $evenement = new Evenement();
-        $form = $this->createForm('EvenementBundle\Form\EvenementType', $evenement);
-        $form->handleRequest($request);
+        $evenements1=array();
+        $id_user=$this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $evenements = $em->getRepository('EvenementBundle:Evenement')->findAll();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($evenement);
-            $em->flush();
+        $em1 = $this->getDoctrine()->getManager();
+        $participations=$em1->getRepository('EvenementBundle:Participation')->findBy(array("id_user"=>$id_user));
 
-            return $this->redirectToRoute('evenement_show', array('id' => $evenement->getId()));
+
+        foreach ($participations as $participation)
+        {
+            foreach ($evenements as $evenement)
+            {
+                if($participation->getIdEvenement()==$evenement)
+                {
+                    array_push($evenements1,$evenement);
+                }
+            }
+
         }
+        return $this->render('EvenementBundle:evenement:mes_participation.html.twig', array(
 
-        return $this->render('evenement/new.html.twig', array(
-            'evenement' => $evenement,
-            'form' => $form->createView(),
-        ));
+            'evenements'=>$evenements1,
+                )
+        );
     }
-*/
+
+
+    public function afficher_evenementAction(Evenement $evenement)
+    {
+        $id_user=$this->getUser();
+
+
+
+        $em1 = $this->getDoctrine()->getManager();
+        $participations=$em1->getRepository('EvenementBundle:Participation')->findBy(array("id_user"=>$id_user));
+
+
+
+
+
+        return $this->render('EvenementBundle:evenement:afficher_un_evenement.html.twig', array(
+            'evenement' => $evenement,
+            'participations'=>$participations,
+            ));
+    }
+
+
+
+
 
     /**
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
      */
-    public function newAction(Request $request)
+    public function ajouterAction(Request $request)
     {
         $evenement = new Evenement();
-
-
         $user=$this->getUser();
-
-
-
         $form = $this->createForm('EvenementBundle\Form\EvenementType', $evenement);
 
         if($request->isMethod('Post'))
         { $form->handleRequest($request);
-                        $evenement = $form->getData();
+            $dir="C:\wamp64\www\projet_zanimaux\web\images";
+            $file=$form['image']->getData();
+            $evenement->setImage($evenement->getNom().".png");
+            $file->move($dir,$evenement->getImage());
+            $evenement->setNbrParticipant(0);
+
+        $evenement = $form->getData();
+                        $evenement->setcreateur($user->getUsername());
             $evenement->setIdMembre($user);
+
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($evenement);
                         $em->flush();
 
-                        return $this->redirectToRoute('event_show', array('id' => $evenement->getId()));
+                        return $this->redirectToRoute('event_mesevenement', array('id' => $evenement->getId()));
             }
-        return $this->render('evenement/new.html.twig', array(
+        return $this->render('EvenementBundle:evenement:new.html.twig', array(
             'evenement' => $evenement,
             'form' => $form->createView(),
         ));
     }
-
-
-
-
-    /**
-     * Finds and displays a evenement entity.
-     *
-     */
-    public function showAction(Evenement $evenement)
+    public function ajouterbackAction(Request $request)
     {
-        $deleteForm = $this->createDeleteForm($evenement);
+        $evenement = new Evenement();
+        $user=$this->getUser();
+        $form = $this->createForm('EvenementBundle\Form\EvenementType', $evenement);
 
-        return $this->render('evenement/show.html.twig', array(
+        if($request->isMethod('Post'))
+        { $form->handleRequest($request);
+            $dir="C:\wamp64\www\projet_zanimaux\web\images";
+            $file=$form['image']->getData();
+            $evenement->setImage($evenement->getNom().".png");
+            $file->move($dir,$evenement->getImage());
+            $evenement->setNbrParticipant(0);
+
+            $evenement = $form->getData();
+            $evenement->setcreateur($user->getUsername());
+            $evenement->setIdMembre($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($evenement);
+            $em->flush();
+
+            return $this->redirectToRoute('event_afficheback');
+        }
+        return $this->render('EvenementBundle:backoffice:ajouter.html.twig', array(
             'evenement' => $evenement,
-            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView(),
         ));
     }
-
-    /**
-     * Displays a form to edit an existing evenement entity.
-     *
-     */
-    public function editAction(Request $request, Evenement $evenement)
+/*
+    public function modifierAction(Request $request, Evenement $evenement)
     {
-        $deleteForm = $this->createDeleteForm($evenement);
+
         $editForm = $this->createForm('EvenementBundle\Form\EvenementType', $evenement);
         $editForm->handleRequest($request);
 
@@ -151,44 +243,63 @@ class EvenementController extends Controller
             return $this->redirectToRoute('event_index', array('id' => $evenement->getId()));
         }
 
-        return $this->render('evenement/edit.html.twig', array(
+        return $this->render('EvenementBundle:evenement:edit.html.twig', array(
             'evenement' => $evenement,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
-
-    /**
-     * Deletes a evenement entity.
-     *
-     */
-    public function deleteAction(Request $request, Evenement $evenement)
+  */
+    public function modifierAction(Request $request, Evenement $id)
     {
-        $form = $this->createDeleteForm($evenement);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $em= $this->getDoctrine()->getManager();
+        $evenement=$em->getRepository('EvenementBundle:Evenement')->find($id);
+        $form=$this->createForm('EvenementBundle\Form\EvenementType', $evenement);
+
+
+        if ($request->isMethod('Post'))
+        {  $form->handleRequest($request);
+
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($evenement);
+            $em->flush();
+            return $this->redirectToRoute('event_mesevenement', array('id' => $evenement->getId()));
+
+        }
+        return $this->render('EvenementBundle:evenement:edit.html.twig',array(
+            "form"=>$form->createView()));
+    }
+
+
+    public function supprimerAction($id)
+    {
+
             $em = $this->getDoctrine()->getManager();
+            $evenement=$em->getRepository("EvenementBundle:Evenement")->find($id);
             $em->remove($evenement);
             $em->flush();
-        }
 
-        return $this->redirectToRoute('event_index');
+        return $this->redirectToRoute('event_mesevenement');
+
+
+
     }
 
-    /**
-     * Creates a form to delete a evenement entity.
-     *
-     * @param Evenement $evenement The evenement entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Evenement $evenement)
+    public function supprimerbackAction($id)
     {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('event_delete', array('id' => $evenement->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
+
+        $em = $this->getDoctrine()->getManager();
+        $evenement=$em->getRepository("EvenementBundle:Evenement")->find($id);
+        $em->remove($evenement);
+        $em->flush();
+
+        return $this->redirectToRoute('event_afficheback');
+
+
+
     }
+
+
+
 }

@@ -1,0 +1,77 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <h1>Evenement edit</h1>
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+
+
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li class="active">Annonce</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-profile">
+        <div class="container">
+
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>Ajouter un evenement</h1>
+
+                    <form action="" method="POST" >
+                        <div class="form-group col-sm-6">
+                            <label>Nom de l'evenement</label>
+                            {{ form_widget(form.nom , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.nom) }}</span>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label >Lieu</label>
+                            {{ form_widget(form.lieu , { 'attr': {'class': 'form-control'} }) }}
+                            <span style="color: red">{{ form_errors(form.lieu) }}</span>
+                        </div>
+                        <div class="form-group" style="font-size: 18px">
+                            <label>Date:</label>
+                            {{ form_widget(form.date ) }}
+                            <span style="color: red">{{ form_errors(form.date) }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre des participants</label>
+                            {{ form_widget(form.nbrMaxParticipant , { 'attr': {'class': 'form-control'} })  }}
+                            <span style="color: red">{{ form_errors(form.nbrMaxParticipant) }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} })  }}
+                            <span style="color: red">{{ form_errors(form.description) }}</span>
+                        </div>
+
+
+                        <br clear="left"><br>
+                        <input class="btn button-md button-theme" type="submit" value="modifier">
+                    </form>
+                </div>
+                <!-- My address end -->
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

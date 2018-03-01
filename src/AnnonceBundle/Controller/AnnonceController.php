@@ -2,7 +2,10 @@
 
 namespace AnnonceBundle\Controller;
 
+use AnnonceBundle\AnnonceBundle;
 use AnnonceBundle\Entity\Annonce;
+use AnnonceBundle\Entity\Commentaire;
+use AnnonceBundle\Form\AnnonceType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,14 +20,165 @@ class AnnonceController extends Controller
      * Lists all annonce entities.
      *
      */
-    public function indexAction()
+    public function annoncesAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if($request->isMethod('POST')) {
+            $region = $request->get('region');
+            $periode = $request->get('periode');
+            $service = $request->get('service');
+
+//recuperer la liste de tous les annonce
+            $annonces = $em->getRepository('AnnonceBundle:Annonce')->recherche($region, $periode, $service);
+
+            /**
+             * @var $paginator \knp\Component\Pager\Paginator
+             */
+            $paginator = $this->get('knp_paginator');
+            $result = $paginator->paginate(
+
+                $annonces,
+                $request->query->getInt('page', 1),
+                $request->query->getInt('limit', 4)
+            );
+            dump(get_class($paginator));
+
+            return $this->render('@Annonce/Annonce/test.html.twig', array(
+                'annonces' => $result,
+            ));
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    public function index1Action(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+//recuperer la liste de tous les annonce
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->findAll();
+        /**
+         * @var $paginator \knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+
+            $annonces,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',4)
+        );
+        dump(get_class($paginator));
+
+        return $this->render('@Annonce/Annonce/test.html.twig', array(
+            'annonces' => $result,
+        ));
+    }
+    public function index2Action(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+//recuperer la liste de tous les annonce
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->findAll();
+        /**
+         * @var $paginator \knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+
+            $annonces,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',4)
+        );
+        dump(get_class($paginator));
+
+        return $this->render('@Annonce/Annonce/test.html.twig', array(
+            'annonces' => $result,
+        ));
+    }
+    public function AnnonceParTypeAction(Request $request)
+    {
+        $type=$request->get('type');
+        $em = $this->getDoctrine()->getManager();
+//recuperer la liste de tous les annonce
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->afficheAnnonceParType($type);
+        /**
+         * @var $paginator \knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+
+            $annonces,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',4)
+        );
+        dump(get_class($paginator));
+        return $this->render('@Annonce/Annonce/test.html.twig', array(
+            'annonces' =>  $result,
+        ));
+    }
+
+    public function mesannonceAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $annonces = $em->getRepository('AnnonceBundle:Annonce')->findAll();
+        $id_user=$this->getUser();
 
-        return $this->render('annonce/index.html.twig', array(
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->afficherAnnonceUser($id_user);
+
+        return $this->render('@Annonce/Annonce/mes_annonce.html.twig', array(
             'annonces' => $annonces,
+        ));
+    }
+
+    public function mesannonceInactiveAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $id_user=$this->getUser();
+
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->mesAnnonceInactiveUser($id_user);
+
+        return $this->render('@Annonce/Annonce/mes_annonce.html.twig', array(
+            'annonces' => $annonces,
+        ));
+    }
+
+
+    /**
+     * Creates a new annonce entity.
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    public function voirProfilUserAction($id , Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->find($id);
+
+
+        $commentaire = new Commentaire();
+        $form = $this->createForm('AnnonceBundle\Form\CommentaireType', $commentaire);
+        $form->handleRequest($request);
+        $em1 = $this->getDoctrine()->getManager();
+        $commentaires = $em1->getRepository('AnnonceBundle:Commentaire')->rechCommentaire($id);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $commentaire->setIdUser($user);
+            $commentaire->setIdReviewer($this->getUser());
+            $commentaire->setDate($this->date = new \DateTime(' Now'));
+            $em->persist($commentaire);
+            $em->flush();
+
+            return $this->redirectToRoute('voirProfile', array('id' => $id));
+        }
+
+
+        return $this->render('@Annonce/Annonce/voirProfil.html.twig', array(
+            'user' => $user,
+            'commentaire' => $commentaire,
+            'form' => $form->createView(),
+            'commentaires' => $commentaires,
         ));
     }
 
@@ -32,7 +186,7 @@ class AnnonceController extends Controller
      * Creates a new annonce entity.
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
      */
-    public function newAction(Request $request)
+    public function proposerAction(Request $request)
     {
         $annonce = new Annonce();
         $form = $this->createForm('AnnonceBundle\Form\AnnonceType', $annonce);
@@ -41,96 +195,85 @@ class AnnonceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $dir="c:\wamp64\www\projet_zanimaux\web\image";
+            $file=$form['image']->getData();
+            $annonce->setImage($annonce->getTitre()."-".$annonce->getId().".png");
+            $file->move($dir,$annonce->getImage());
             $annonce->setMembre($user);
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirectToRoute('annonce_show', array('id' => $annonce->getId()));
+            return $this->redirectToRoute('affiche_annonce', array('id' => $annonce->getId()));
         }
 
-        return $this->render('annonce/new.html.twig', array(
+        return $this->render('@Annonce/Annonce/proposer2.html.twig', array(
             'annonce' => $annonce,
             'form' => $form->createView(),
         ));
     }
-    /**
-     * Finds and displays a annonce entity.
-     *
-     */
-    public function showAction(Annonce $annonce)
-    {
-        $deleteForm = $this->createDeleteForm($annonce);
 
-        return $this->render('annonce/show.html.twig', array(
+
+    public function afficheAction(Annonce $annonce)
+    {
+
+
+        return $this->render('@Annonce/Annonce/affiche.html.twig', array(
             'annonce' => $annonce,
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
-    /**
-     * Displays a form to edit an existing annonce entity.
-     *
-     */
-    public function editAction(Request $request, Annonce $annonce)
+
+    public function modifierAction(Request $request, Annonce $annonce)
     {
-        $deleteForm = $this->createDeleteForm($annonce);
         $editForm = $this->createForm('AnnonceBundle\Form\AnnonceType', $annonce);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('annonce_index');
+            return $this->redirectToRoute('liste_annonce1');
         }
 
-        return $this->render('annonce/edit.html.twig', array(
+        return $this->render('@Annonce/Annonce/modifier.html.twig', array(
             'annonce' => $annonce,
             'form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
-    /**
-     * Deletes a annonce entity.
-     *
-     */
-    public function deleteAction(Request $request, Annonce $annonce)
-    {
-        $form = $this->createDeleteForm($annonce);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($annonce);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('annonce_index');
-    }
-    public function indexAdminAction()
+    public function indexAdminAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $annonces = $em->getRepository('AnnonceBundle:Annonce')->findBy(array(), array('id'=> 'desc'));
+        $annonces = $em->getRepository('AnnonceBundle:Annonce')->findAll();
+        /**
+         * @var $paginator \knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
 
-        return $this->render('back_office/Annonce/liste.html.twig', array(
-            'annonces' => $annonces,
+            $annonces,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',4)
+        );
+        dump(get_class($paginator));
+
+        return $this->render('@Annonce/back/Annonce/liste.html.twig', array(
+            'annonces' => $result,
         ));
+
+
+    }
+    public function DeleteAnnonceAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $annonce = $em->getRepository("AnnonceBundle:Annonce")->find($id);
+        $em->remove($annonce);
+        $em->flush();
+        return $this->redirectToRoute('MesAnnonce');
     }
 
-    /**
-     * Creates a form to delete a annonce entity.
-     *
-     * @param Annonce $annonce The annonce entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Annonce $annonce)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('annonce_delete', array('id' => $annonce->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
+
+
 }

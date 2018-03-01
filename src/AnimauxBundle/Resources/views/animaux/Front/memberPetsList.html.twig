@@ -1,0 +1,98 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <div class="page_loader"></div>
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Agent Listing</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Agent Listing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- About team meet start -->
+    <div class="about-team-meet">
+        <div class="container">
+            <!-- Heading -->
+            <h1 class="heading">Mes animaux</h1>
+            <div class="row">
+                {% for animal in animaux %}
+                <div class="col-lg-4 col-md-4 col-md-4 col-sm-4 col-xs-12 clearfix">
+                    <!-- About box start -->
+                    <div class="thumbnail about-box wow fadeInLeft delay-03s">
+                        <img src="{{ asset('images/'~animal.photo) }}" alt="team-1" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+                            <h6>{{ animal.typeanimal }}</h6>
+                            <h3><a href="{{ path('animaux_User_Pets_description',{ 'id': animal.id }) }}">{{ animal.nom }}</a></h3>
+                            <!-- contact -->
+                            <div class="contact">
+                                <p>
+                                    <i class="fa fa-envelope-o"></i>
+                                    <a href="mailto:info@themevessel.com">Date</a>
+                                </p>
+                                <p>
+                                    <i class="fa fa-mobile"></i><a href="tel:+55417-634-7071">{{ animal.typeoffre }}</a>
+                                </p>
+                            </div>
+                            <!-- footer -->
+                            <!-- fa -->
+
+                            <a href="{{ path('animaux_index_front_description', { 'id': animal.id }) }}">  <i class="fa fa-eye text-success"></i></a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="{{ path('animaux_modifier', { 'id': animal.id }) }}"> <i class="fa fa-pencil text-primary"></i></a>
+
+                            <a href="{{ path('animaux_supprimer', { 'id': animal.id }) }}">  <i class="fa fa-eraser"></i></a>
+
+                            <!-- fa-end -->
+                            <!-- social List -->
+                            <ul class="social-list clearfix">
+                                <li>
+                                    <a href="#" class="facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="rss">
+                                        <i class="fa fa-rss"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- button-btn -->
+                        </div>
+                    </div>
+                    <!-- About box emd -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- About team meet end -->
+
+{% endblock %}

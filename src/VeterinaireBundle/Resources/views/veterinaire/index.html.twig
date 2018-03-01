@@ -1,0 +1,131 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block titre %}
+    <title>Zanimo Veterinaire</title>
+{% endblock %}
+
+
+{% block body %}
+
+
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1> Vétérinaires </h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Vétérinaires</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- About team meet start -->
+    <div class="about-team-meet">
+        <div class="container">
+            <!-- Heading -->
+            <h1 class="heading"> </h1>
+            <div class="row">
+                {% for veterinaire in veterinaires %}
+
+
+                <div class="col-lg-4 col-md-4 col-md-4 col-sm-4 col-xs-12 clearfix">
+                    <!-- About box start -->
+                    <div class="thumbnail about-box wow fadeInLeft delay-03s">
+                        <img src="{{ asset('frontOffice/assets/img/team/team-1.png') }}" alt="team-1" class="img-responsive">
+                        <!-- Detail -->
+                        <div class="caption detail">
+
+                            <h3><a href="{{ path('veterinaire_afficheVet_front',{'id':veterinaire.id}) }}">{{ veterinaire.nom }} {{ veterinaire.prenom }}</a></h3>
+                            <!-- contact -->
+                            <div class="contact">
+                                <p>
+                                    <i class="fa fa-envelope-o"></i>
+                                    {{ veterinaire.mail }}
+                                </p>
+                                <p>
+                                    <i class="glyphicon glyphicon-earphone"></i>
+                                    {{ veterinaire.telephone }}
+                                </p>
+                                <p>
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                    {{ veterinaire.adresse }}
+                                </p>
+
+                                <span>
+                                        <h4>Avis :</h4>
+                                {% if veterinaire.note>0  and veterinaire.note<5 %}
+                                    {% for i in 0 .. veterinaire.note-1|round(0,'floor') %}
+                                        <a href="{{ path('notevet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:yellow"></i></a>
+                                    {% endfor %}
+                                {% for i in 0 .. (4-veterinaire.note|round(0,'floor')) %}
+                                    <a href="{{ path('notevet',{'idv':veterinaire.id,'note':(i+ veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                {% endfor %}
+                                {% endif %}
+
+                                        {% if veterinaire.note==0 %}
+                                            {% for i in 0 .. 4 %}
+                                                <a href="{{ path('notevet',{'idv':veterinaire.id,'note':(i+veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                        {% if veterinaire.note==5 %}
+                                            {% for i in 0 ..4 %}
+                                                <a href="{{ path('notevet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="ui-star" style="font-size:28px;color:yellow"></i></a>
+                                            {% endfor %}
+                                        {% endif %}
+
+                               </span>
+
+                            </div>
+
+
+
+
+                            <!-- footer -->
+                            <!-- social List -->
+                            <ul class="social-list clearfix">
+                                <li>
+                                    <a href="https://www.facebook.com/" class="facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/" class="twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/" class="linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/" class="google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/" class="rss">
+                                        <i class="fa fa-rss"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- button-btn -->
+                        </div>
+                    </div>
+                    <!-- About box emd -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- About team meet end -->
+{% endblock %}

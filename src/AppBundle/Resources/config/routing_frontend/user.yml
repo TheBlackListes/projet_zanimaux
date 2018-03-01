@@ -1,0 +1,20 @@
+membre_index:
+    path:     /
+    defaults: { _controller: "AppBundle:User:index" }
+
+recherche:
+    path:     /search
+    defaults: { _controller: AppBundle:User:rech}
+
+
+membre_liste_bloque:
+    path:     /liste-bloque
+    defaults: { _controller: "AppBundle:User:listeBloque" }
+membre_bloquer:
+    path:     /bloquer/{id}
+    defaults: { _controller: "AppBundle:User:bloquer" }
+
+membre_debloquer:
+    path:     /debloquer/{id}
+    defaults: { _controller: "AppBundle:User:debloquer" }
+

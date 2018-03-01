@@ -1,0 +1,46 @@
+{% extends 'front_office/base.html.twig' %}
+{% block body %}
+
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">My Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-profile">
+    <div class="container">
+
+
+
+    <div class="col-lg-6 col-md-6 col-sm-5">
+    <!-- My address start-->
+    <div class="my-address">
+
+
+    {% block fos_message_content %}
+
+<h2>{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</h2>
+
+<form action="{{ url('fos_message_thread_new') }}" method="post">
+    <div class="form-group">
+    {{ form_widget(form) }}
+    </div>
+    <input class="btn button-md button-theme" type="submit" value="Envoyé" />
+</form>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% endblock %}

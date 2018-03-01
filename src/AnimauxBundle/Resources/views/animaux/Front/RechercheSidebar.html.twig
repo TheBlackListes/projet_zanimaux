@@ -1,0 +1,104 @@
+
+<div class="sidebar sidebar-widget">
+    <h3 class="title">Recherche</h3>
+    <form id="rechercheForm" action="{{ path('animaux_rechercheindex') }}"method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <input class="form-control search-fields" placeholder="Race souhaitée" type="text" name="race">
+        </div>
+        <div class="form-group">
+            <select class="selectpicker search-fields" name="type">
+                <option>Type</option>
+                <option>Chat</option>
+                <option>Chien</option>
+                <option>Rongeur</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="selectpicker search-fields" name="offre">
+                <option>Offre</option>
+                <option>Adoption</option>
+                <option>Vente</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select class="selectpicker search-fields" name="sexe"  >
+                <option>Sexe</option>
+                <option>Mâle</option>
+                <option>Femelle</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select class="selectpicker search-fields" name="age" >
+                <option>Age</option>
+                <option>Jeune</option>
+                <option>Adulte</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <select class="selectpicker search-fields" name="energie">
+                        <option >Energie</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <select class="selectpicker search-fields" name="force">
+                        <option>Force</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <select class="selectpicker search-fields" name="sociabilite">
+                        <option>Sociabilité</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <select class="selectpicker search-fields" name="intelligence">
+                        <option>Intelligence</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="range-slider">
+            <label>Prix</label>
+            <div data-min="0" data-max="1000" data-unit="Dinars" data-name="prix" class="range-slider-ui ui-slider" aria-disabled="false" ></div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="form-group">
+            <button class="search-button" type="submit">Rechercher</button>
+        </div>
+    </form>
+</div>

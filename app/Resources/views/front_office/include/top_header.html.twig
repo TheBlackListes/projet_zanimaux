@@ -41,15 +41,15 @@
                                                 class="fa fa-chevron-down"></i>
                                     </button>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <a href="{{ path('fos_user_profile_show')}}">
+                                    <<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
                                         <li><a href="{{ path('fos_user_profile_show')}}">Profil</a></li>
                                         <li><a href="">Edit Profil</a></li>
-                                        <li><a href="{{ path('annonce_new') }}"> mes Annonces</a></li>
-                                        <li><a href=""> mes Animaux</a></li>
-                                        <li><a class="" href=""> mes produits
-                                            </a>
-                                        </li>
+                                        <li><a href="{{ path('fos_message_inbox') }}"> Messages</a></li>
+                                        <li><a href="{{ path('MesAnnonce') }}"> mes Annonces</a></li>
+                                        <li><a href="{{ path('animaux_User_List') }}"> mes Animaux</a></li>
+                                        <li><a href="{{ path('event_mesevenement') }}"> mes Evenement</a></li>
+                                        <li><a href="{{ path('Produit_mesproduit') }}"> Mes produits</a></li>
                                         <li>
                                             <a href="{{ path('fos_user_security_logout') }}">
                                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

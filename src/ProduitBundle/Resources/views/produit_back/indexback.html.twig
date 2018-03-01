@@ -1,0 +1,61 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block body %}
+<br>
+    <h1>Liste des produits</h1>
+    <div class="table-responsive bs-example widget-shadow">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID_Produit</th>
+            <th>Libelle</th>
+            <th>Type</th>
+            <th>Catégorie</th>
+            <th>Prix</th>
+            <th>Etat</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+            <th>Marque</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a>{{ produit.id }}</a></td>
+
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.type }}</td>
+                <td>{{ produit.categorie }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.etat }}</td>
+                <td>{{ produit.marque }}</td>
+
+
+                <td>
+                    <a href=><i class="fa fa-eye text-success"></i></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href=><i class="fa fa-pencil text-primary"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('Produit_indexback') }}">Create a new annonce</a>
+        </li>
+    </ul>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block titre %}
+
+    <title>Mes produits</title>
+{% endblock %}
+
+{% block body %}
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Mes produits</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Accueil</a></li>
+                        <li class="active">Mes produits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+
+    <!-- My Propertiess start -->
+    <div class="my-propertiess">
+        <div class="container">
+            <div class="row">
+
+
+
+                {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <!-- Heading -->
+                    <h1 class="heading">Mes produits</h1>
+                    <!-- My propertiess box start -->
+                    {% for produit in produits %}
+
+                        <div class="my-properties-box wow fadeInUp delay-03s clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-pad my-propertie-theme">
+                                <img src="{{ asset('images/')}}{{ produit.pathImage }}" class="img-responsive">
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-pad">
+                                <div class="detail">
+                                    <!-- Header -->
+                                    <header class="clearfix">
+                                        <div class="pull-left">
+                                            <h1 class="title">
+                                                <a href="{{ path('Produit_show', {'id': produit.id }) }}"> {{ produit.libelle }}</a>
+                                            </h1>
+
+
+                                            <h3 class="location">
+                                                <a href="#">
+                                                    <i class="fa fa-money"></i>{{ produit.prix }} dt
+                                                </a>
+                                            </h3>
+
+
+                                                    <h3>
+
+                                                    <i>Etat : {{ produit.etat }}</i> </br>
+                                                    <i>Type : {{ produit.type }} </i></br>
+                                                    <i>Catégorie : {{ produit.categorie }} </i></br>
+                                                    <i>Marque : {{ produit.marque }} </i>
+
+
+                                            </h3>
+                                        </div>
+                                        <!-- Btn -->
+                                        <div class="pull-right">
+                                            <a href="#" class="button-sm button-theme">Details</a>
+                                        </div>
+
+                                    </header>
+                                    <hr>
+
+                                </div>
+                                <!-- footer -->
+                                <div class="footer clearfix">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="price">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="listing-meta ">
+                                    <span>
+                                        <a href="{{ path('Produit_edit', { 'id': produit.id }) }}">
+                                            <i class="fa fa-pencil"></i>Edit
+                                        </a>
+                                    </span>
+                                            <span>
+                                        <a href="{{ path('Produit_delete', { 'id': produit.id }) }}">
+                                            <i class="fa fa-remove"></i>Delete
+                                        </a>
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                    <!-- My propertiess box end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- My Propertiess end -->
+{% endblock %}

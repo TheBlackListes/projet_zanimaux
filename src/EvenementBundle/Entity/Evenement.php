@@ -2,7 +2,11 @@
 
 namespace EvenementBundle\Entity;
 
+
+
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Evenement
@@ -30,6 +34,18 @@ class Evenement
      */
     private $id_membre;
 
+    /**
+     ** @var \Doctrine\Common\Collections\Collection|User[]
+     *
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User" )
+     * @ORM\JoinTable(
+     *      joinColumns={@ORM\JoinColumn(onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(onDelete="CASCADE")}
+     * )
+     */
+    protected $participant;
+
 
 
 
@@ -39,6 +55,13 @@ class Evenement
      * @ORM\Column(name="nom", type="string", length=50, nullable=false)
      */
     private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="createur", type="string", length=50, nullable=false)
+     */
+    private $createur;
 
     /**
      * @var \DateTime
@@ -57,7 +80,7 @@ class Evenement
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000, nullable=false)
+     * @ORM\Column(name="description", type="text", length=1000, nullable=false)
      */
     private $description;
 
@@ -67,6 +90,18 @@ class Evenement
      * @ORM\Column(name="nbr_max_participant", type="integer", nullable=false)
      */
     private $nbrMaxParticipant;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_participant", type="integer", nullable=true)
+     */
+    private $nbrParticipant;
+
+    /**
+     * @ORM\Column(type="string")
+     */private $image;
+
+
 
     /**
      * @return int
@@ -181,7 +216,77 @@ class Evenement
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
+    }
 
+    /**
+     * @param mixed $participant
+     */
+    public function setParticipant($participant)
+    {
+        $this->participant = $participant;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreateur()
+    {
+        return $this->createur;
+    }
+
+    /**
+     * @param string $createur
+     */
+    public function setCreateur($createur)
+    {
+        $this->createur = $createur;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNbrParticipant()
+    {
+        return $this->nbrParticipant;
+    }
+
+    /**
+     * @param mixed $nbrParticipant
+     */
+    public function setNbrParticipant($nbrParticipant)
+    {
+        $this->nbrParticipant = $nbrParticipant;
+    }
+
+
+
+
+    public function __construct()
+    {
+        $this->participant = new ArrayCollection();
+    }
 
 }
 

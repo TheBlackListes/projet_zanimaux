@@ -15,14 +15,15 @@ class RegistrationType extends AbstractType
 
             ->add('sexe',ChoiceType::class, array(
                 'choices' => array(
-                    'Homme' => 'H',
-                    'Femme' => 'F',
+                    'Homme' => 'Homme',
+                    'Femme' => 'Femme',
                 )
             ))
 
-            ->add('image')
             ->add('telephone')
-            ->add('ville');
+            ->add('ville')
+            ->add('image');
+
     }
 
     public function getParent()

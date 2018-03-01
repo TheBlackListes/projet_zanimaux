@@ -3,23 +3,29 @@
 namespace ProduitBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File;
+
 
 /**
  * Produit
  *
  * @ORM\Table(name="produit")
- * @ORM\Entity
+ *  @ORM\Entity(repositoryClass="ProduitBundle\Repository\ProduitRepository")
  */
+
 class Produit
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idProduit", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idproduit;
+    private $id;
 
     /**
      *
@@ -36,8 +42,17 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
-     */
+ */
     private $libelle;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie", type="string", length=255, nullable=false)
+     */
+    private $categorie;
 
     /**
      * @var integer
@@ -53,27 +68,60 @@ class Produit
      */
     private $type;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="marque", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Etat", type="string", length=255, nullable=false)
+     */
+    private $etat;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="marque", type="string", length=255, nullable=true)
      */
     private $marque;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="visibilite", type="integer")
+     */
+    private $visibilite;
+
+    /**
+     * return int
+    */
+        public function getVisibilite()
+    {
+        return $this->visibilite;
+    }
+
+    /**
+    * @param int $visib
+    */
+    public function setVisibilite($visibilite)
+    {
+        $this->visibilite = $visibilite;
+    }
+
+
+    /**
      * @return int
      */
-    public function getIdproduit()
+    public function getId()
     {
-        return $this->idproduit;
+        return $this->id;
     }
 
     /**
      * @param int $idproduit
      */
-    public function setIdproduit($idproduit)
+    public function setId($id)
     {
-        $this->idproduit = $idproduit;
+        $this->id = $id;
     }
 
 
@@ -94,6 +142,40 @@ class Produit
     }
 
     /**
+     * @return string
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param string $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
+
+    /**
+ * @return string
+ */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+
+
+    /**
      * @return int
      */
     public function getPrix()
@@ -108,6 +190,7 @@ class Produit
     {
         $this->prix = $prix;
     }
+
 
     /**
      * @return string
@@ -158,6 +241,74 @@ class Produit
     }
 
 
+    /**
+     * @return mixed
+     * @ORM\Column(type="string")
+     */
+
+    protected  $pathImage;
+
+
+    /**
+     * @return mixed
+     */
+    public function getPathImage()
+    {
+        return $this->pathImage;
+    }
+
+    /**
+     * @param mixed $pathImage
+     */
+    public function setPathImage($pathImage)
+    {
+        $this->pathImage = $pathImage;
+    }
+
+    private $image;
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage(UploadedFile $image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    public function getUploadDir()
+    {
+        return 'images';
+    }
+
+    public function getAbsolutePath()
+    {
+        return $this->getAbsoluteRoot().'/'.$this->image->getClientOriginalName();
+    }
+
+    public function getAbsoluteRoot()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir().'/';
+    }
+
+    public function upload()
+    {
+
+        if($this->image==null)
+        {
+            return;
+        }
+        $this->pathImage = $this->image->getClientOriginalName();
+        if(!is_dir($this->getAbsoluteRoot()))
+        {
+            mkdir($this->getAbsoluteRoot(),'0777',true);
+        }
+        $this->image->move($this->getAbsoluteRoot(),$this->pathImage);
+        unset($this->image);
+
+    }
 
 
 }

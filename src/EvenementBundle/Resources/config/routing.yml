@@ -1,9 +1,71 @@
-evenement_event:
-    resource: "@EvenementBundle/Resources/config/routing/evenement.yml"
-    prefix:   /event
-
 evenement_homepage:
     path:     /
     defaults: { _controller: EvenementBundle:Default:index }
+
+evenement_pdf:
+    path:     /{id/pdf
+    defaults: { _controller: EvenementBundle:Default:pdf }
+
+event_index:
+    path:     /listevent
+    defaults: { _controller: "EvenementBundle:Evenement:afficherlist" }
+
+event_afficheback:
+    path:     /affiche_back
+    defaults: { _controller: "EvenementBundle:Evenement:afficherlistback" }
+
+event_recherche:
+    path:     /listevent
+    defaults: { _controller: "EvenementBundle:Evenement:recherche" }
+
+event_mesevenement:
+    path:     /mesevenement
+    defaults: { _controller: "EvenementBundle:Evenement:affichermesevenement" }
+
+event_meseparticipation:
+    path:     /mes_participation
+    defaults: { _controller: "EvenementBundle:Evenement:affichermesparticipation" }
+
+event_show:
+    path:     /{id}/show
+    defaults: { _controller: "EvenementBundle:Evenement:afficher_evenement" }
+
+
+
+
+event_new:
+    path:     /ajouter
+    defaults: { _controller: "EvenementBundle:Evenement:ajouter" }
+
+event_newback:
+    path:     /ajouter_back
+    defaults: { _controller: "EvenementBundle:Evenement:ajouterback" }
+
+
+event_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EvenementBundle:Evenement:modifier" }
+
+
+event_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EvenementBundle:Evenement:supprimer" }
+
+event_deleteback:
+    path:     /{id}/deleteback
+    defaults: { _controller: "EvenementBundle:Evenement:supprimerback" }
+
+event_attend:
+    path:  /{id}/attend
+    defaults: { _controller: "EvenementBundle:Participation:participer" }
+
+event_unattend:
+    path:  /{id}/unattend
+    defaults: { _controller: "EvenementBundle:Participation:abandonner" }
+
+event_unattendprofil:
+    path:  /{id}/unattendprofil
+    defaults: { _controller: "EvenementBundle:Participation:abandonnerprofil" }
+
 
 

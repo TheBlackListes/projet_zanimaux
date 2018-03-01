@@ -8,6 +8,7 @@ imports:
     - { resource: "@MagasinBundle/Resources/config/services.yml" }
     - { resource: "@AnimauxBundle/Resources/config/services.yml" }
     - { resource: "@AnnonceBundle/Resources/config/services.yml" }
+    - { resource: "@MyAppMailBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -69,6 +70,10 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
+    #encryption: '%mailer_encryption%'
+    #port:  '%mailer_port%'
+    #disable_delivery:  '%mailer_disable_delivery%'
+    #auth_mode: '%mailer_auth_mode%'
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
@@ -84,3 +89,70 @@ fos_user:
     registration:
             form:
                 type: AppBundle\Form\RegistrationType
+
+knp_paginator:
+    page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
+    default_options:
+        page_name: page                 # page query parameter name
+        sort_field_name: sort           # sort field query parameter name
+        sort_direction_name: direction  # sort direction query parameter name
+        distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+        filter_field_name: filterField  # filter field query parameter name
+        filter_value_name: filterValue  # filter value query paameter name
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'     # sliding pagination controls template
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+        filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+nomaya_social:
+    buttons:
+        facebook:
+            url:            null
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            locale:         "fr"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+        pinterest:
+            url:            null
+    links:
+        facebook:           "http://www.facebook.com/yann.chauvel"
+        googleplus:         "https://plus.google.com/105931415830389032796"
+    theme:                  'default' # optional
+
+fos_message:
+    db_driver: orm
+    thread_class: AppBundle\Entity\Thread
+    message_class: AppBundle\Entity\Message
+
+
+knp_snappy:
+    pdf:
+        enabled: true
+        binary: %kernel.root_dir%/../vendor/wemersonjanuario/wkhtmltopdf-windows/bin/64bit/wkhtmltopdf.exe
+        options:
+           page-size: A4
+           dpi: 300
+           image-quality: 80
+           margin-left: 15mm
+           margin-right: 15mm
+           margin-top: 15mm
+           margin-bottom: 15mm
+           user-style-sheet: %kernel.root_dir%/../web/assets/css/pdf.css

@@ -1,0 +1,128 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block titre %}
+
+<div id="page-title">
+    <h1 class="page-header text-overflow">Liste des annonces</h1>
+
+</div>
+{% endblock %}
+{% block body %}
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">Liste des annonces</h2>
+
+                <div class="panel-body widget-shadow">
+                    <div class="bs-example widget-shadow" data-example-id="contextual-table">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+
+
+                                <th>Type</th>
+                                <th>Membre</th>
+                                <th>Date de annonce</th>
+                                <th>Voir</th>
+
+                            </tr>
+                            </thead>
+                            {% for annonce in annonces %}
+                                <tbody>
+
+                                <tr class="info">
+
+                                    <td>{{ annonce.type }}</td>
+                                    <td>{{ annonce.membre.username }}</td>
+                                    <td>{{ annonce.date|date('d-m-Y') }}</td>
+                                    <td>
+                                        <a href="" title="voir" data-target="#modal-{{ annonce.id }}"
+                                           data-toggle="modal">
+                                            <i class="fa fa-eye fa-2x text-info"></i>
+                                        </a>
+                                        {{ include('@Annonce/back/Annonce/affiche.html.twig') }}
+                                    </td>
+
+
+                                </tr>
+
+
+
+                                </tbody>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                    <div  class="pagination">
+                        {{ knp_pagination_render(annonces) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#
+<div id="page-content">
+
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            {% for flash_message in app.session.flashBag.get('message') %}
+
+                <div class="alert alert-success fade in">
+                    <button class="close" data-dismiss="alert"><span>×</span></button>
+                    <strong>{{ flash_message }}</strong>
+                </div>
+            {% endfor %}
+
+
+            <div class="panel">
+
+                <!-- Striped Table -->
+                <!--===================================================-->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+
+                            <thead>
+
+
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Membre</th>
+                                        <th>Date de annonce</th>
+                                        <th>Voir</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for annonce in annonces %}
+                                        <tr>
+                                            <td>{{ annonce.type }}</td>
+                                            <td>{{ annonce.membre.username }}</td>
+                                            <td>{{ annonce.date|date('d-m-Y') }}</td>
+                                            <td>
+                                                <a href="" title="voir" data-target="#modal-{{ annonce.id }}"
+                                                   data-toggle="modal">
+                                                    <i class="fa fa-eye fa-2x text-info"></i>
+                                                </a>
+                                                {{ include('back_office/Annonce/affiche.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+#}
+{% endblock %}
+

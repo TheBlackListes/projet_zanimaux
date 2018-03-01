@@ -1,0 +1,149 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block titre %}
+
+    <title>mes annonces</title>
+{% endblock %}
+
+{% block body %}
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Properties</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">My Properties</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+
+    <!-- My Propertiess start -->
+    <div class="my-propertiess">
+        <div class="container">
+            <div class="row">
+
+                {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <!-- Heading -->
+                    <h1 class="heading">Mes annonces</h1>
+                    <!-- My propertiess box start -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="">
+                            <a class="tab-annonce btn" href="{{ path('MesAnnonce') }}"
+                               style="font-weight: bold">A venir</a>
+                        </li>
+
+                        <li role="presentation">
+                            <a class="tab-annonce btn" href="{{ path('MesAnnonceinactive') }}"
+                               style="font-weight: bold">Passé</a>
+                        </li>
+
+                    </ul>
+                    <br><br>
+                    {% for annonce in annonces %}
+
+                        <div class="my-properties-box wow fadeInUp delay-03s clearfix">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-pad my-propertie-theme">
+                                <img src="{{ asset('image/'~annonce.image)}}" alt="my-properties-1" class="img-responsive">
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-pad">
+                                <div class="detail">
+                                    <!-- Header -->
+                                    <header class="clearfix">
+                                        <div class="pull-left">
+                                            <h1 class="title" style="color: #d62323 ">
+                                                {{ annonce.titre }}
+                                            </h1>
+                                            <h3 class="location">
+
+                                                    <i class="fa fa-map-marker"></i>{{ annonce.region }}
+
+                                            </h3>
+                                        </div>
+                                        <!-- Btn -->
+                                        <div class="pull-right">
+                                            <a href="{{ path('affiche_annonce', { 'id': annonce.id }) }}" class="button-sm button-theme">Details</a>
+                                        </div>
+                                    </header>
+                                    <hr>
+                                    <i class="glyph-icon flaticon-old-telephone-ringing"></i>{{annonce.membre.telephone }} </p>
+                                </div>
+                                <!-- footer -->
+                                <div class="footer clearfix">
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="price">
+                                            <a href="{{ path('fos_user_profile_show') }}">
+                                            <i class="fa fa-user"></i> {{ annonce.membre.username }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="date">
+                                            {{ annonce.dateAnnonce|date }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="listing-meta ">
+                                    <span>
+                                        <a href="{{ path('annonce_edit', { 'id': annonce.id }) }}">
+                                            <i class="fa fa-pencil"></i>Edit
+                                        </a>
+                                    </span>
+                                            <span>
+                                        <a href data-toggle="modal"
+                                               data-target="#myModal-delete-{{ annonce.id }}"
+                                               class="pull-right text-danger">
+                                            <i class="fa fa-remove"></i>Delete
+                                        </a>
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="myModal-delete-{{ annonce.id }}" tabindex="-1"
+                             role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Supprimer cette
+                                            annonce</h4>
+                                    </div>
+                                    <form method="post"
+                                          action="{{ path('annonce_delete', {'id': annonce.id}) }}">
+                                        <div class="modal-body">
+                                            Supprimer cette annonce , confirmer ??????
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Fermer
+                                            </button>
+                                            <button type="submit" class="btn btn-danger">Confirmer</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <!-- My propertiess box end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- My Propertiess end -->
+{% endblock %}

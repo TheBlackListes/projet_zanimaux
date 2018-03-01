@@ -1,24 +1,52 @@
 Produit_index:
-    path:     /
+    path:     /liste/{type}
     defaults: { _controller: "ProduitBundle:Produit:index" }
-    methods:  GET
 
 Produit_show:
-    path:     /{idproduit}/show
+    path:     /{id}/show
     defaults: { _controller: "ProduitBundle:Produit:show" }
-    methods:  GET
 
 Produit_new:
     path:     /new
     defaults: { _controller: "ProduitBundle:Produit:new" }
-    methods:  [GET, POST]
 
 Produit_edit:
-    path:     /{idproduit}/edit
+    path:     /{id}/edit
     defaults: { _controller: "ProduitBundle:Produit:edit" }
-    methods:  [GET, POST]
 
 Produit_delete:
-    path:     /{idproduit}/delete
+    path:     /{id}/delete
     defaults: { _controller: "ProduitBundle:Produit:delete" }
-    methods:  DELETE
+
+Produit_mesproduit:
+    path:     /mesproduits
+    defaults: { _controller: "ProduitBundle:Produit:mesproduits" }
+
+Produit_indexback:
+    path:     /indexback
+    defaults: { _controller: "ProduitBundle:Produit:IndexBack" }
+
+Produit_visibilite:
+    path:     /{id}/vis
+    defaults: { _controller: "ProduitBundle:Produit:visibilite" }
+
+Produit_nbusers:
+    path:     /nbr
+    defaults: { _controller: "ProduitBundle:Produit:NombreUser" }
+
+Produit_recherche:
+    path:     /rech
+    defaults: { _controller: "ProduitBundle:Produit:Recherche" }
+
+Produit_stat:
+    path:     /stat
+    defaults: { _controller: "ProduitBundle:Statistique:StatProduitParCategorie" }
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,10 @@ annonce_annonce:
     resource: "@AnnonceBundle/Resources/config/routing/annonce.yml"
     prefix:   /annonce
 
+commentaire_routing:
+    resource: "@AnnonceBundle/Resources/config/routing/commentaire.yml"
+    prefix:   /commentaire
+
 annonce_homepage:
     path:     /
     defaults: { _controller: AnnonceBundle:Default:index }

@@ -1,0 +1,273 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- Map content start -->
+    <div class="map-content content-area container-fluid">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-push-6">
+            <div class="row">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-pull-6 map-content-sidebar">
+            <div class="map-content-separater"></div>
+            <div class="clearfix"></div>
+            <div class="title-area">
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="col-lg-10 col-md-10 col-md-10 col-sm-10 col-xs-12 clearfix">
+                <!-- About box start -->
+                <div class="thumbnail about-box wow fadeInLeft delay-03s">
+                    <img src="{{ asset('frontOffice/assets/img/team/team-1.png') }}" alt="team-1" class="img-responsive">
+                    <!-- Detail -->
+                    <div class="caption detail">
+
+                        <h3><a href="{{ path('veterinaire_afficheVet_front',{'id':veterinaire.id}) }}">{{ veterinaire.nom }} {{ veterinaire.prenom }}</a></h3>
+                        <!-- contact -->
+                        <h3><a href="{{ path('generation_pdf',{'id':veterinaire.id}) }}"> gsvsqv</a></h3>
+
+
+
+
+                        <div class="contact">
+                            <p>
+                                <i class="fa fa-envelope-o"></i>
+                                {{ veterinaire.mail }}
+                            </p>
+                            <p>
+                                <i class="glyphicon glyphicon-earphone"></i>
+                                {{ veterinaire.telephone }}
+                            </p>
+                            <p>
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                {{ veterinaire.adresse }}
+                            </p>
+
+                            <span>
+                        <h4>Avis :</h4>
+                                {% if veterinaire.note>0  and veterinaire.note<5 %}
+                                    {% for i in 0 .. veterinaire.note-1|round(0,'floor') %}
+                                        <a href="{{ path('note2vet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:yellow"></i></a>
+                                    {% endfor %}
+                                                {% for i in 0 .. (4-veterinaire.note|round(0,'floor')) %}
+                                    <a href="{{ path('note2vet',{'idv':veterinaire.id,'note':(i+ veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                {% endfor %}
+                                {% endif %}
+
+                                {% if veterinaire.note==0 %}
+                                    {% for i in 0 .. 4 %}
+                                        <a href="{{ path('note2vet',{'idv':veterinaire.id,'note':(i+veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if veterinaire.note==5 %}
+                                    {% for i in 0 ..4 %}
+                                        <a href="{{ path('note2vet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="ui-star" style="font-size:28px;color:yellow"></i></a>
+                                    {% endfor %}
+                                {% endif %}
+
+                 </span>
+                        </div>
+
+
+
+                        <!-- footer -->
+                        <!-- social List -->
+                        <ul class="social-list clearfix">
+                            <li>
+                                <a href="https://www.facebook.com/" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/" class="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/" class="linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/" class="google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/" class="rss">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- button-btn -->
+                    </div>
+                </div>
+                <!-- About box emd -->
+            </div>
+        </div>
+    </div>
+    <!-- Map content end -->
+
+    <!-- Categories strat -->
+    <div class="categories">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Veterinaires plus notés</h1>
+                <div class="border">
+                    <div class="border-inner"></div>
+                </div>
+                <p>En se basant sur les avis de nos utilisateurs vous trouvez ici les trois vétérinaires plus notés.</p>
+            </div>
+
+            {% for veterinaire in vets %}
+            <div class="row row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="row row">
+
+                            <div class="thumbnail about-box wow fadeInLeft delay-03s">
+                                <img src="{{ asset('frontOffice/assets/img/team/team-1.png') }}" alt="team-1" class="img-responsive">
+                                <!-- Detail -->
+                                <div class="caption detail">
+
+                                    <h3><a href="{{ path('veterinaire_afficheVet_front',{'id':veterinaire.id}) }}">{{ veterinaire.nom }} {{ veterinaire.prenom }}</a></h3>
+                                    <!-- contact -->
+                                    <div class="contact">
+                                        <p>
+                                            <i class="fa fa-envelope-o"></i>
+                                            {{ veterinaire.mail }}
+                                        </p>
+                                        <p>
+                                            <i class="glyphicon glyphicon-earphone"></i>
+                                            {{ veterinaire.telephone }}
+                                        </p>
+                                        <p>
+                                            <i class="glyphicon glyphicon-map-marker"></i>
+                                            {{ veterinaire.adresse }}
+
+                                        </p>
+                                        <span>
+                                        <h4>Avis :</h4>
+                                            {% if veterinaire.note>0  and veterinaire.note<5 %}
+                                                {% for i in 0 .. veterinaire.note-1|round(0,'floor') %}
+                                                    <a href="{{ path('notevet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:yellow"></i></a>
+                                                {% endfor %}
+                                {% for i in 0 .. (4-veterinaire.note|round(0,'floor')) %}
+                                                <a href="{{ path('notevet',{'idv':veterinaire.id,'note':(i+ veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                            {% endfor %}
+                                            {% endif %}
+
+                                            {% if veterinaire.note==0 %}
+                                                {% for i in 0 .. 4 %}
+                                                    <a href="{{ path('notevet',{'idv':veterinaire.id,'note':(i+veterinaire.note|round(0,'floor') +1)}) }}"><i class="glyphicon glyphicon-star-empty" style="font-size:28px;color:grey"></i></a>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                            {% if veterinaire.note==5 %}
+                                                {% for i in 0 ..4 %}
+                                                    <a href="{{ path('notevet',{'idv':veterinaire.id,'note':i+1}) }}"><i class="ui-star" style="font-size:28px;color:yellow"></i></a>
+                                                {% endfor %}
+                                            {% endif %}
+
+                               </span>
+
+                                    </div>
+
+
+
+
+                                    <!-- footer -->
+                                    <!-- social List -->
+                                    <ul class="social-list clearfix">
+                                        <li>
+                                            <a href="https://www.facebook.com/" class="facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/" class="twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/" class="linkedin">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/" class="google">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.facebook.com/" class="rss">
+                                                <i class="fa fa-rss"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- button-btn -->
+                                </div>
+                            </div>
+
+                        <!-- About box emd -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <!-- Categories end-->
+
+{% endblock %}
+{% block script %}
+
+    <script>
+        var map;
+        var geocoder;
+        function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: uluru
+            });
+            geocoder = new google.maps.Geocoder();
+            codeAddress();
+        }
+        function codeAddress() {
+
+            // Define address to center map to
+            var address = '{{ veterinaire.adresse}}';
+
+            geocoder.geocode({
+                'address': address
+            }, function (results, status) {
+
+                if (status === google.maps.GeocoderStatus.OK) {
+
+                    // Center map on location
+                    map.setCenter(results[0].geometry.location);
+
+                    // Add marker on location
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+
+                } else {
+
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2ctMyN56N8XkeVPzpNPpnWTG1Bu6spZI&callback=initMap">
+    </script>
+{% endblock %}

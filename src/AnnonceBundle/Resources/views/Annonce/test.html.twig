@@ -1,0 +1,123 @@
+{% extends 'front_office/base.html.twig' %}
+    {% block body %}
+        <!-- Sub banner start -->
+        <div class="sub-banner">
+            <div class="overlay">
+                <div class="container">
+                    <div class="breadcrumb-area">
+                        <div class="top">
+                            <h1>Liste des annonces</h1>
+                        </div>
+                        <ul class="breadcrumbs">
+                            <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                            <li class="active">Liste des annonce</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sub Banner end -->
+
+        <!-- Properties section body start -->
+        <div class="properties-section-body content-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-xs-12 col-md-push-4">
+
+                        <!-- Option bar start -->
+                        <div class="option-bar">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-2">
+                                    <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-list"></i>
+                                </span>
+                                        <span class="hidden-xs">Liste des annonces</span>
+                                    </h4>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-7 col-xs-10 cod-pad">
+                                    <div class="">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Option bar end -->
+
+                        <!-- Listing properties start -->
+                        {% for annonce in annonces %}
+                            <div class="listing-properties-box wow fadeInUp delay-03s" >
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 listing-propertie-theme">
+                                    <img src="{{ asset('image/'~ annonce.image)}}" class="img-responsive">
+                                    <!-- Tag -->
+                                    <span class="tag-f-left">
+                                        <a href="{{ path('affiche_annonce', { 'id': annonce.id }) }}">{{ annonce.service}}</a>
+                                        </span>
+
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 detail">
+                                    <!-- Header -->
+                                    <header class="clearfix">
+                                        <div class="pull-left">
+
+                                            <h1 class="title">
+                                                <a>{{ annonce.titre }}</a>
+                                            </h1>
+
+                                            <h3 class="location">
+                                                {{ annonce.region }}
+                                            </h3>
+                                        </div>
+                                        <!-- Btn -->
+                                        <div class="pull-right">
+                                            <a href="{{ path('affiche_annonce', { 'id': annonce.id }) }}" class="button-sm button-theme"> Details</a>
+                                        </div>
+                                    </header>
+                                    <!-- Facilities list start -->
+                                    <ul class="facilities-list clearfix">
+                                        <li class="">
+                                            <i class=""></i>
+                                            <span> </span>
+                                        </li>
+                                        <li>
+                                            <i class=""></i>
+                                            <span> </span>
+                                        </li>
+
+                                    </ul>
+                                    <!-- footer -->
+                                    <div class="footer">
+                                        <a href="{{ path('voirProfile', { 'id': annonce.membre.id }) }}">
+                                            <i class="fa fa-user"></i> {{ annonce.membre.username }}
+                                        </a>
+                                        <span>
+                                <i class="fa fa-calendar-o"></i>{{ annonce.membre.telephone }}
+                            </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                        <div class="navigation">
+
+                        </div>
+                        <div  class="pagination">
+                            {{ knp_pagination_render(annonces) }}
+                        </div>
+                        <!-- Page navigation end-->
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-xs-12 col-md-pull-8">
+
+                        <!-- Search contents sidebar start -->
+                        {{ include('@Annonce/Annonce/recherche.html.twig') }}
+                        <!-- Search contents sidebar end -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Properties section body end -->
+    {% endblock %}

@@ -1,28 +1,49 @@
-annonce_index:
+liste_annonce1:
     path:     /
-    defaults: { _controller: "AnnonceBundle:Annonce:index" }
-    methods:  GET
+    defaults: { _controller: "AnnonceBundle:Annonce:index1" }
 
-annonce_show:
-    path:     /{id}/show
-    defaults: { _controller: "AnnonceBundle:Annonce:show" }
-    methods:  GET
+
+recherche:
+    path:     /
+    defaults: { _controller: "AnnonceBundle:Annonce:annonces" }
+
+voirProfile:
+    path:     /{id}/voirProfil
+    defaults: { _controller: "AnnonceBundle:Annonce:voirProfilUser" }
+
+
+liste_annonce2:
+    path:     /
+    defaults: { _controller: "AnnonceBundle:Annonce:index2" }
+
+Annonce_Par_type:
+    path:     /liste/{type}
+    defaults: { _controller: "AnnonceBundle:Annonce:AnnonceParType" }
+
+affiche_annonce:
+    path:     /{id}/affiche
+    defaults: { _controller: "AnnonceBundle:Annonce:affiche" }
 
 annonce_new:
     path:     /new
-    defaults: { _controller: "AnnonceBundle:Annonce:new" }
-    methods:  [GET, POST]
+    defaults: { _controller: "AnnonceBundle:Annonce:proposer" }
 
 annonce_edit:
     path:     /{id}/edit
-    defaults: { _controller: "AnnonceBundle:Annonce:edit" }
-    methods:  [GET, POST]
+    defaults: { _controller: "AnnonceBundle:Annonce:modifier" }
 
 annonce_delete:
     path:     /{id}/delete
-    defaults: { _controller: "AnnonceBundle:Annonce:delete" }
-    methods:  DELETE
+    defaults: { _controller: "AnnonceBundle:Annonce:DeleteAnnonce" }
 Annonce_admin:
     path:     /Adannonce
     defaults: { _controller: "AnnonceBundle:Annonce:indexAdmin" }
-    methods:  GET
+
+MesAnnonce:
+    path:     /mesAnnonce
+    defaults: { _controller: "AnnonceBundle:Annonce:mesannonce" }
+
+MesAnnonceinactive:
+    path:     /mesAnnonceInactive
+    defaults: { _controller: "AnnonceBundle:Annonce:mesannonceInactive" }
+

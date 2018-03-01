@@ -1,0 +1,94 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <h2 class="title1">Recherche Membre par nom </h2>
+            Rechercher: <input type="text" id="recherche">
+            <h2> Liste des Membre </h2>
+            <div class="panel-body widget-shadow">
+                <div class="bs-example widget-shadow" data-example-id="contextual-table">
+
+                    <div class="tableau" style="width:100%">
+                        <table class="table">
+                            <thead>  <tr>
+
+                                <td>Nom</td>
+                                <td>email</td>
+                                <td>Sexe</td>
+                                <td>Telephone</td>
+                                <td>ville</td>
+                                <td>Actions</td>
+
+
+                            </tr>    </thead>
+                            {%  for membre in membres %}
+                            <tr class="info">
+                                <td>{{ membre.username }}</td>
+                                <td>{{ membre.email }}</td>
+                                <td>{{ membre.telephone }}</td>
+                                <td>{{ membre.telephone }}</td>
+                                <td>{{ membre.ville }}</td>
+                                <td>
+                                    <a href="" title="voir" data-target="#modal-{{ membre.id }}" data-toggle="modal">
+                                        <i class="fa fa-eye fa-x text-info"></i>
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    {% if membre.enabled %}
+                                    <a href="{{ path('membre_bloquer', {'id': membre.id}) }}"   title="Bloquer">
+                                        <i class="fa fa-lock fa-x text-danger"></i>
+                                    </a>
+                                    {% else %}
+                                        <a href="{{ path('membre_debloquer', {'id': membre.id}) }}"
+                                           title="Débloquer">
+                                            <i class="fa fa-unlock fa-x text-success"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {{ include('back_office/membre/affiche.html.twig') }}
+                                </td>
+                            </tr>
+
+
+                            {% endfor %}
+
+
+
+
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script >
+        $(function () {
+            $("#recherche").keyup(function () {
+                $.ajax({
+                    url : "{{ path('recherche') }}",
+                    data : { 'membre' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('.tableau').empty();
+                    $('.tableau').append(tableau);
+                });
+            });
+        })
+    </script>
+
+
+
+
+{% endblock %}

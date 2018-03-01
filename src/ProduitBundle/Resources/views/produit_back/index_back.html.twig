@@ -1,0 +1,79 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block titre %}
+    <title> Produits</title>
+{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">Tables des produits</h2>
+
+                <div class="panel-body widget-shadow">
+                <div class="bs-example widget-shadow" data-example-id="contextual-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+
+                            <th>Id</th>
+                            <th>Libelle</th>
+                            <th>Type</th>
+                            <th>Catégorie</th>
+                            <th>Prix</th>
+                            <th>Etat</th>
+                            <th>Marque</th>
+
+                        </tr>
+                        </thead>
+                        <div class="container" id="res1">
+                        {% for produit in produits %}
+                            <tbody>
+
+                            <tr class="info">
+
+                                <td><a>{{ produit.id }}</a></td>
+
+                                <td>{{ produit.libelle }}</td>
+                                <td>{{ produit.type }}</td>
+                                <td>{{ produit.categorie }}</td>
+                                <td>{{ produit.prix }}</td>
+                                <td>{{ produit.etat }}</td>
+                                <td>{{ produit.marque }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            {% if produit.visibilite == 1 %}
+                                                <a  href="{{ path('Produit_visibilite', {'id': produit.id }) }}">
+                                                    <i class="ace-icon fa fa-pencil bigger-130"></i>Cacher
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ path('Produit_visibilite', {'id' : produit.id }) }}">
+                                                    <i class="ace-icon fa fa-pencil bigger-130"></i>Afficher
+                                                </a>
+                                            {% endif %}
+
+
+                                    </ul>
+                                </td>
+
+
+                            </tr>
+
+
+
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

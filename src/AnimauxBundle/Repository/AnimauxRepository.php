@@ -31,5 +31,36 @@ class AnimauxRepository extends EntityRepository
         return $query->getResult();
     }
 
+    public function findidDQL($id)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("
+                select m from AnimauxBundle:Animaux m WHERE m.id=:id
+            ") ->setParameter('id',$id)
+        ;
+        return $query->getResult();
+    }
+
+    public function afficheplusdate($type_offre)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("
+                select m from AnimauxBundle:Animaux m WHERE m.type_offre=:type_offre ORDER BY m.date
+            ") ->setParameter('type_offre',$type_offre)
+        ;
+        return $query->getResult();
+    }
+
+
+    public function affichemoinsdate($type_offre)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("
+                select m from AnimauxBundle:Animaux m WHERE m.type_offre=:type_offre ORDER BY m.date DESC 
+            ") ->setParameter('type_offre',$type_offre)
+        ;
+        return $query->getResult();
+    }
+
 
 }

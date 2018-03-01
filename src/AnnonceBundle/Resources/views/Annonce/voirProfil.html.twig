@@ -1,0 +1,230 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends 'front_office/base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block titre %}
+    <title>My profile</title>
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block body %}
+
+{% block fos_user_content %}
+
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">My Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+<div class="properties-details-page">
+    <div class="container">
+        <div class="row">
+<!-- My profile start -->
+<div class="my-profile">
+    <div class="container">
+        <div class="col-lg-3 col-md-3 col-sm-4">
+                <!-- My account box start -->
+                <div class="my-account-box">
+                    <div class="item">
+                <div class="edit-profile-photo">
+                <img src="{{ user.image }}"class="img-responsive">
+
+                </div>
+                    </div>
+                </div>
+        </div>
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>My Account
+
+                    </h1>
+
+                    <form action="http://real-house.sohelrana.me/index.html">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="input-text" name="your name" value="{{ user.username }}"readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Votre mail</label>
+                            <input type="text" class="input-text" name="mail" value="{{ user.email }}" readonly >
+                        </div>
+                        <div class="form-group">
+                            <label>Télephone</label>
+                            <input type="text" class="input-text" name="phone" value="{{ user.telephone }}"readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Sexe</label>
+                            <input type="email" class="input-text" name="sexe" value="{{ user.sexe }}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Ville</label>
+                            <input type="email" class="input-text" name="ville" value="{{ user.ville }}" readonly>
+                        </div>
+                    </form>
+                </div>
+                <!-- My address end -->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- Avatar start -->
+                <!-- Agent widget start -->
+                <div class="sidebar sidebar-widget contact-form agent-widget">
+                    <h3>
+                        <a href="#">contacter-nous </a>
+                    </h3>
+
+                    <form id="agent_form" action="http://real-house.sohelrana.me/index.html" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <a href="{{ path('fos_message_thread_new') }}">
+                                <input class="button-md button-theme btn-block" value="Send Message" ></input>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Agent widget end -->
+
+                <!-- Avatar end -->
+            </div>
+
+
+</div>
+
+
+               {# <h1>Commentaires list</h1>
+
+                   {% for commentaire in commentaires %}
+                            <h3>{{ commentaire.description }}</h3>
+                            <h3>{{ commentaire.idReviewer.username }}</h3>
+                       {% if(app.user == commentaire.idReviewer ) %}
+                           <a href="{{ path('commentaire_delete',{'id':commentaire.id}) }}">Supprimer</a>
+                        {% endif %}
+                    {% endfor %}
+
+                <h2>Ajout Comm</h2>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" value="Create" />
+                {{ form_end(form) }}#}
+
+                <!-- Latest reviews start
+{#
+          <div class="sidebar sidebar-widget latest-reviews" >
+                    <h3 class="title">Recommendation</h3>
+
+                    {% for commentaire in commentaires %}
+
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="{{ commentaire.idReviewer.image }}" alt="">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"><a href="#">{{ commentaire.idReviewer.username }}</a></h3>
+                            {% if(app.user == commentaire.idReviewer ) %}
+                                <a class="fa fa-remove" href="{{ path('commentaire_delete',{'id':commentaire.id}) }}"></a>
+                            {% endif %}
+                            <p>{{ commentaire.description}}
+                            </p>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                   {{ form_start(form) }}
+                   <div class="form-group">
+                       {{ form_widget(form.description, { 'attr': {'class': 'form-control'} })  }}
+                       <div class="form-group">
+                           <input type="submit" name="submit" value="Commenter" class="search-button">
+                       </div>
+                   </div>
+                   {{ form_end(form) }}
+                </div>
+                #}
+                <!-- Latest reviews end -->
+
+
+                <!-- Properties comments start -->
+<div style="alignment: center">
+
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="properties-details-section">
+                <div class="properties-comments mrg-btm-40">
+                    <h3 class="heading">
+                        Comments Section
+                    </h3>
+                    {% for commentaire in commentaires %}
+                    <ul class="comments">
+                        <li>
+                            <div class="comment">
+                                <div class="comment-author">
+                                    <a href="#">
+                                        <img src="{{ commentaire.idReviewer.image }}">
+                                    </a>
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-meta">
+                                        <div class="comment-meta-author">
+                                            Posted by <a href="#">{{ commentaire.idReviewer.username }}</a>
+
+                                        </div>
+                                        <div class="comment-meta-reply">
+                                            {% if(app.user == commentaire.idReviewer ) %}
+                                                <a class="fa fa-remove" href="{{ path('commentaire_delete',{'id':commentaire.id}) }}"></a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="comment-meta-date">
+                                            <span class="time">{{ commentaire.date|date('h:m d/m/Y') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="comment-body">
+                                        {{ commentaire.description}}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control'} })  }}
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Commenter" class="search-button">
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                </div>
+                </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+
+             {#   <h2>Ajout Comm</h2>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" value="Create" />
+                {{ form_end(form) }}#}
+
+
+
+{% endblock fos_user_content %}
+{% endblock %}

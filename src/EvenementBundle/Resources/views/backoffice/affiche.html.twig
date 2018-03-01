@@ -1,0 +1,75 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block titre %}
+    <title> Evenement List</title>
+{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">Tables des evenement</h2>
+
+                <div class="panel-body widget-shadow">
+                    <div class="bs-example widget-shadow" data-example-id="contextual-table">
+                        <h4>         <a href="{{ path('event_newback') }}">Create a new evenement</a> </h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+
+
+
+                                <th>Nom</th>
+                                <th>Lieu</th>
+                                <th>date</th>
+                                <th>Nombre des participants</th>
+                                <th>Nombre des participants maximal</th>
+                                <th>createur</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            {% for evenement in evenements %}
+                                <tbody>
+
+                                <tr class="info">
+
+
+
+                                    <td>{{ evenement.nom }}</td>
+                                    <td>{{ evenement.lieu }}</td>
+                                    <td>{% if evenement.date %}{{ evenement.date|date }}{% endif %}</td>
+                                    <td>{{ evenement.nbrParticipant }}</td>
+                                    <td>{{ evenement.nbrMaxParticipant }}</td>
+                                    <td>{{ evenement.createur }}</td>
+                                    <td>{{ evenement.description }}</td>
+                                   <td>
+                                        <ul>
+
+
+                                            <li>
+                                            <span>
+                                            <a href="{{ path('event_deleteback', { 'id': evenement.id }) }}">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </a>
+                                            </span>
+                                            </li>
+
+                                        </ul>
+                                    </td>
+
+
+                                </tr>
+
+
+
+                                </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

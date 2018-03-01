@@ -2,7 +2,7 @@
 // src/AppBundle/Entity/User.php
 
 namespace AppBundle\Entity;
-
+use FOS\MessageBundle\Model\ParticipantInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Form\RegistrationType;
@@ -10,8 +10,9 @@ use AppBundle\Form\RegistrationType;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User extends BaseUser  implements ParticipantInterface
 {
     /**
      * @ORM\Id
@@ -95,6 +96,7 @@ class User extends BaseUser
         $this->telephone = $telephone;
     }
 
+
     /**
      * @return string
      */
@@ -103,12 +105,30 @@ class User extends BaseUser
         return $this->ville;
     }
 
+
+
     /**
      * @param string $ville
      */
     public function setVille($ville)
     {
         $this->ville = $ville;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 
@@ -119,4 +139,5 @@ class User extends BaseUser
 
         // your own logic
     }
+
 }

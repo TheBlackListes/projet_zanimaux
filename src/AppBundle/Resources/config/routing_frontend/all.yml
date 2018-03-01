@@ -1,3 +1,6 @@
 app_default:
     resource: "@AppBundle/Resources/config/routing_frontend/default.yml"
     prefix:  /
+user:
+    resource: "@AppBundle/Resources/config/routing_frontend/user.yml"
+    prefix:   /membre

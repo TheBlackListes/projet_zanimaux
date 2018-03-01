@@ -1,0 +1,190 @@
+{% extends 'front_office/base.html.twig' %}
+{% block body %}
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Properties Detail</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Properties Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- Properties details page start -->
+    <div class="properties-details-page">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="properties-details-section">
+                        <!-- Header -->
+                        <div class="heading-properties clearfix">
+                            <div class="pull-left">
+                                <h3> {{ animaux.nom }}</h3>
+                                <p>
+                                    {{ animaux.race }}
+                                </p>
+                            </div>
+                            <div class="pull-right">
+                                {% if animaux.typeoffre == 'vente' %}
+                                    <h3>{{ animaux.prix }} Dinars</h3>
+                                {% endif %}
+                                <p>
+                                    {{ 5|rating }}
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Properties detail slider start -->
+                        <div class="properties-detail-slider simple-slider mrg-btm-40 ">
+                            <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-outer">
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="{{ asset('images/'~animaux.photo) }}" class="thumb-preview" alt="Chevrolet Impala">
+                                        </div>
+                                    </div>
+                                <ol class="carousel-indicators thumbs visible-lg visible-md">
+                                    <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="{{ asset('images/'~animaux.photo) }}"></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- Properties detail slider end -->
+
+
+                        <!-- Properties description start -->
+                        <div class="properties-description mrg-btm-40 ">
+                            <h3 class="heading">
+                                Description
+                            </h3>
+                            <P> {{ animaux.description }} </P>
+                        </div>
+                        <!-- Properties description end -->
+
+                        <!-- Properties condition start -->
+                        <div class="properties-condition mrg-btm-40 ">
+                            <h3 class="heading">
+                                Property Details
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <ul class="condition">
+                                        <li>
+                                            <i class="flaticon-bed"></i> Type: {{ animaux.typeanimal }}
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i> Race: {{ animaux.race }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <ul class="condition">
+                                        <li>
+                                            <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> Sexe: {{ animaux.sexe }}
+                                        </li>
+                                        <li>
+                                            <i class="fa-birthday-cake"></i> Age: {{ animaux.age }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <ul class="condition">
+                                        <li>
+                                            <i class="flaticon-vehicle"></i> Taille:*********
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-building"></i> Poids:**********
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Properties condition end -->
+
+                        <!-- Properties amenities start -->
+                        <div class="properties-amenities mrg-btm-40 ">
+                            <h3 class="heading">
+                                Caractère
+                            </h3>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <ul class="amenities">
+                                        <li>
+                                            <i class="flaticon-air-conditioner"></i>
+                                            Energie :  {{  animaux.energie  |rating }}
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-bars"></i>
+                                            Force :  {{ animaux.forceX|rating }}
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-people-2"></i>
+                                            Sociabilité :  {{ animaux.sociabilite|rating }}
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-monitor"></i>
+                                            Intelligence :  {{ animaux.intelligence|rating }}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Properties amenities end -->
+
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+
+
+                        <div class="clearfix"></div>
+
+                        <!-- Social media box start -->
+                        <div class="blog-share social-media-box sidebar-widget sidebar">
+                            <h3 class="title">Social Media</h3>
+                            <ul class="social-list">
+                                <li>
+                                    <a href="#" class="facebook-bg">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter-bg">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="google-bg">
+                                        <i class="fa fa-google"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="linkedin-bg">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="pinterest-bg">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Social media box end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Properties details page end -->
+{% endblock %}

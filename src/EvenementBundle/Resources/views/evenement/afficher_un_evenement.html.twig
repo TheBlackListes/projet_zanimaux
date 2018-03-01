@@ -1,0 +1,141 @@
+{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>Evenement Detail</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li class="active">Evenement Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+    <!-- Properties details page start -->
+    <div class="properties-details-page">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="properties-details-section">
+                        <!-- Header -->
+                        <div class=" clearfix">
+                            <div class="pull-left">
+                                <h3>{{evenement.nom}}</h3>
+
+                                <h3 class="location">
+                                    <a href="#">
+                                        <i class="fa fa-map-marker" style="color: #cfdc00"></i>
+
+                                        {{ evenement.lieu }}
+                                    </a>
+                                </h3>
+                            </div>
+                            <div class="pull-right">
+                                <h3></h3>
+                                <p>
+
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Properties detail slider start -->
+                        <div class="properties-detail-slider simple-slider mrg-btm-40 ">
+                            <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-outer">
+                                    <!-- Wrapper for slides -->
+
+                                    <div class="item">
+                                        <img src="{{ asset('images/'~ evenement.image) }}" class="thumb-preview" alt="Chevrolet Impala">
+                                    </div>
+
+                                    <!-- Controls -->
+
+                                </div>
+                                <!-- Indicators -->
+
+                            </div>
+                        </div>
+                        <!-- Properties detail slider end -->
+
+
+                        <!-- Properties description start -->
+                        <div class="properties-description mrg-btm-40 ">
+                            <h3 class="heading">
+                                Description
+                            </h3>
+                            <p>{{evenement.description}}</p>
+                        </div>
+                        <!-- Properties description end -->
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="sidebar right">
+                        <!-- Specifications start -->
+                        <div class="sidebar sidebar-widget specifications clearfix hidden-xs hidden-sm">
+
+                            <!-- Reviews Box -->
+                            {% set attend=0 %}
+                            {% for participation in participations %}
+                                {% if participation.getIdEvenement()==evenement %}
+                                    {% set attend=1  %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if attend==0 %}
+                            <a href="{{ path('event_attend', {'id': evenement.id}) }}" class="wishlist-btn">
+                            <span class="wishlist-btn-l">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                                <span class="wishlist-btn-r">Participer</span>
+                                <div class="clear"></div>
+                            </a>
+                            {% endif %}
+                            {% if attend==1 %}
+                            <a href="{{ path('event_unattend', {'id': evenement.id}) }}" class="book-btn">
+                                <span class="book-btn-l"><i class="fa fa-check"></i></span>
+                                <span class="book-btn-r">Annuler la Paricipation</span>
+                                <div class="clear"></div>
+                            </a>
+                            {% endif %}
+                        </div>
+                        <!-- Specifications end -->
+
+
+
+
+                        <!-- Social media box start -->
+                        <div class="blog-share social-media-box sidebar-widget sidebar">
+                            <h3 class="title">Social Media</h3>
+                            <ul class="social-list">
+                                <li>
+                                    {{ facebookButton() }}
+                                </li>
+                                <li>
+                                    {{ twitterButton() }}
+                                </li>
+                                <li>
+                                    {{ googleplusButton() }}
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Social media box end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Properties details page end -->
+
+{% endblock %}

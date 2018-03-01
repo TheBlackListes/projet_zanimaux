@@ -3,9 +3,12 @@
 namespace AnimauxBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use blackknight467\StarRatingBundle\Form\RatingType;
+
 
 class AnimauxType extends AbstractType
 {
@@ -30,27 +33,26 @@ class AnimauxType extends AbstractType
                     'Mâle' => 'male',
                     'Femelle' => 'femelle') ))
 
-            ->add('age')
-
-            ->add('taille', ChoiceType::class, array(
+            ->add('age', ChoiceType::class, array(
                 'choices'  => array(
-                    'Petit' => 'petit',
-                    'Moyen' => 'moyen',
-                    'Grand' => 'grand') ))
-            ->add('poids')
+                    'Jeune' => 'jeune',
+                    'Adulte' => 'adulte') ))
+
             ->add('description')
-            ->add('energie')
-            ->add('forceX')
-            ->add('sociabilite')
-            ->add('intelligence')
-            ->add('photo')
+
+            ->add('energie', RatingType::class, ['stars' => 5,])
+            ->add('forceX', RatingType::class, ['stars' => 5,])
+            ->add('sociabilite', RatingType::class, ['stars' => 5,])
+            ->add('intelligence', RatingType::class, ['stars' => 5,])
+
+            ->add('photo' ,FileType::class,array('data_class'=>null))
+
             ->add('type_offre', ChoiceType::class, array(
                 'choices'  => array(
                     'Vente' => 'vente',
                     'Adoption' => 'adoption') ))
 
-            ->add('prix')
-            ->add('proprietaire');
+            ->add('prix');
     }/**
      * {@inheritdoc}
      */

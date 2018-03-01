@@ -16,6 +16,17 @@
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
+
+            <li class="treeview">
+                <a href="{{ path('membre_index') }}"></a>
+                    <i class="fa fa-pie-chart"></i> <span>Membre</span>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ path('membre_index') }}"><i class="fa fa-angle-right"></i> Liste Membre</a></li>
+                        <li><a href="{{ path('membre_liste_bloque') }}"><i class="fa fa-angle-right"></i> Liste bloqué</a></li>
+                        <li><a href="{{ path('recherche') }}"><i class="fa fa-angle-right"></i> rech</a></li>
+                    </ul>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
@@ -23,17 +34,19 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="grids.html"><i class="fa fa-angle-right"></i> Grids</a></li>
-                    <li><a href="media.html"><i class="fa fa-angle-right"></i> Media Css</a></li>
+                    <li><a href="{{ path('animaux_index') }}"><i class="fa fa-angle-right"></i> Grids</a></li>
+                    <li><a href="{{ path('animaux_index') }}"><i class="fa fa-angle-right"></i> Media Css</a></li>
                 </ul>
             </li>
+
             <li class="treeview">
-                <a href="charts.html">
+                <a href="{{ path('Produit_indexback') }}">
                     <i class="fa fa-pie-chart"></i>
                     <span>Produit</span>
                     <span class="label label-primary pull-right">new</span>
                 </a>
             </li>
+
             <li class="treeview">
                 <a href="{{ path('Annonce_admin') }}">
                     <i class="fa fa-pie-chart"></i>
@@ -54,9 +67,9 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ path('event_afficheback') }}">
                     <i class="fa fa-pie-chart"></i> <span>Evenement</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="forms.html"><i class="fa fa-angle-right"></i> General Forms</a></li>

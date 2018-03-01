@@ -1,0 +1,64 @@
+{% extends 'front_office/base.html.twig' %}
+{% block body %}
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">My Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-profile">
+    <div class="container">
+
+    {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+    <div class="col-lg-6 col-md-6 col-sm-5">
+    <!-- My address start-->
+    <div class="my-address">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="">
+            <a class="tab-annonce btn" href="{{ path('fos_message_inbox') }}"
+               style="font-weight: bold">Inbox</a>
+        </li>
+
+        <li role="presentation">
+            <a class="tab-annonce btn" href="{{ path('fos_message_sent') }}"
+               style="font-weight: bold">Envoyé</a>
+        </li>
+        <li role="presentation">
+            <a class="tab-annonce btn" href="{{ path('fos_message_deleted') }}"
+               style="font-weight: bold">Supprimé</a>
+        </li>
+    </ul>
+{% block fos_message_content %}
+
+
+<h5 style="color: #d62323;">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</h5>
+
+{% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+    </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <!-- Avatar start -->
+        <div class="edit-profile-photo">
+            <img src="{{ app.user.image }}"class="img-responsive">
+            <div class="change-photo-btn">
+
+            </div>
+        </div>
+        <!-- Avatar end -->
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% endblock %}

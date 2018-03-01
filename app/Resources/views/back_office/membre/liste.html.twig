@@ -1,0 +1,82 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block body %}
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Liste des membres</h1>
+
+    </div>
+    <div id="page-content">
+
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                {% for flash_message in app.session.flashBag.get('message') %}
+
+                    <div class="alert alert-success fade in">
+                        <button class="close" data-dismiss="alert"><span>×</span></button>
+                        <strong>{{ flash_message }}</strong>
+                    </div>
+                {% endfor %}
+
+
+                <div class="panel">
+
+
+                    <!-- Striped Table -->
+                    <!--===================================================-->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>email</th>
+                                    <th>Sexe</th>
+                                    <th>Telephone</th>
+                                    <th>ville</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for membre in membres %}
+                                    <tr>
+
+                                        <td>{{membre.username }}</td>
+                                        <td>{{ membre.email }}</td>
+                                        <td>{{ membre.sexe }}</td>
+                                        <td>{{ membre.telephone }}</td>
+                                        <td>{{ membre.ville }}</td>
+                                        <td>
+                                            <a href="" title="voir" data-target="#modal-{{ membre.id }}" data-toggle="modal">
+                                                <i class="fa fa-eye fa-x text-info"></i>
+                                            </a>
+                                            &nbsp;&nbsp;&nbsp;
+                                            {% if membre.enabled %}
+                                                <a href="{{ path('membre_bloquer', {'id': membre.id}) }}"
+                                                   title="Bloquer">
+                                                    <i class="fa fa-lock fa-x text-danger"></i>
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ path('membre_debloquer', {'id': membre.id}) }}"
+                                                   title="Débloquer">
+                                                    <i class="fa fa-unlock fa-x text-success"></i>
+                                                </a>
+                                            {% endif %}
+
+                                            {{ include('back_office/membre/affiche.html.twig') }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

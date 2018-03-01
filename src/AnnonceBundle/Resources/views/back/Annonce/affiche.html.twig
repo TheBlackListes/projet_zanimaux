@@ -1,0 +1,47 @@
+<div class="modal fade" id="modal-{{ annonce.id }}" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Detail annonce</h4>
+            </div>
+
+            <!--Modal body-->
+            <div class="modal-body">
+
+                <p>
+                    <label>Type:</label> <h6 class="modal-title" style="display: inline">{{ annonce.type }}</h6>
+                </p>
+                <p>
+                    <label>Annonceur</label> <h6 class="modal-title">{{ annonce.membre.username }}</h6>
+                </p>
+                <p>
+                    <label>Annonceur</label> <h6 class="modal-title">{{ annonce.membre.telephone }}</h6>
+                </p>
+                <p>
+                    <label>Cause:</label> <h6 class="modal-title">{{ annonce.cause }} DT</h6>
+                </p>
+                <p>
+                    <label>region:</label> <h6 class="modal-title">{{ annonce.region }} DT</h6>
+                </p>
+                <p>
+                    <label>Titre:</label> <h6 class="modal-title">{{ annonce.titre }} DT</h6>
+                </p>
+                <p>
+                    <label>Description</label> <h6 class="modal-title">{{ annonce.description }} DT</h6>
+                </p>
+
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-primary" type="button">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+{##}{% extends 'front_office/base.html.twig' %}
+
+{% block body %}
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li class="active">Liste des Annonces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+
+    <!-- My Propertiess start -->
+    <div class="properties-section-body content-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <!-- Option bar start -->
+                    <div class="option-bar">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-5 col-sm-5 col-xs-2">
+                                <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-large"></i>
+                                </span>
+                                    <span class="hidden-xs">Liste des annonces</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Option bar end -->
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        {% for annonce in annonces %}
+
+                            <div class="my-properties-box wow fadeInUp delay-03s clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-pad my-propertie-theme">
+                                    <img src="{{ asset('image/'~annonce.image)}}" class="img-responsive">
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-pad">
+                                    <div class="detail">
+                                        <!-- Header -->
+                                        <header class="clearfix">
+                                            <div class="pull-left">
+                                                <h1 class="title" style="color: #d62323 ">
+                                                    {{ annonce.titre }}
+                                                </h1>
+                                                <h3 class="location">
+
+                                                    <i class="fa fa-map-marker"></i>{{ annonce.region }}
+
+                                                </h3>
+                                            </div>
+                                            <!-- Btn -->
+                                            <div class="pull-right">
+                                                <a href="{{ path('affiche_annonce', { 'id': annonce.id }) }}" class="button-sm button-theme">Details</a>
+                                            </div>
+                                        </header>
+                                        <hr>
+                                        <i class="glyph-icon flaticon-old-telephone-ringing"></i>{{annonce.membre.telephone }} </p>
+                                    </div>
+                                    <!-- footer -->
+                                    <div class="footer clearfix">
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            <div class="price">
+                                                <a href="{{ path('voirProfile',{'id':annonce.membre.id}) }}">
+                                                    <i class="fa fa-user"></i> {{ annonce.membre.username }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">
+                                            <div class="date">
+                                                {{ annonce.dateAnnonce|date }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+
+                    <!-- Page navigation start -->
+                   {# <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">Previous</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    #}
+                    <div  class="pagination">
+                        {{ knp_pagination_render(annonces) }}
+                    </div>
+                    <!-- Page navigation end -->
+                </div>
+                {{ include('@Annonce/Annonce/recherche.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

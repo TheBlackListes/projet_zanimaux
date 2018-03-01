@@ -5,10 +5,7 @@ namespace VeterinaireBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Veterinaire
- *
- * @ORM\Table(name="veterinaire")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="VeterinaireBundle\Repository\VeterinaireRepository")
  */
 class Veterinaire
 {
@@ -38,7 +35,7 @@ class Veterinaire
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @ORM\Column(name="adresse", type="string", length=255)
      */
     private $adresse;
 
@@ -57,8 +54,31 @@ class Veterinaire
     private $telephone;
 
     /**
+     * @ORM\Column(name="note", type="integer")
+     */
+    private $note;
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+
+    /**
      * @return int
      */
+
     public function getId()
     {
         return $this->id;
@@ -136,13 +156,12 @@ class Veterinaire
         $this->mail = $mail;
     }
 
-    /**
-     * @return string
-     */
+
     public function getTelephone()
     {
-        return $this->telephone;
+    return $this->telephone;
     }
+
 
     /**
      * @param string $telephone

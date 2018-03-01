@@ -3,12 +3,13 @@
 namespace AnnonceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Annonce
  *
  * @ORM\Table(name="annonce")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AnnonceBundle\Repository\AnnonceRepository")
  */
 class Annonce
 {
@@ -28,12 +29,6 @@ class Annonce
      */
     private $type;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cause", type="string", length=255, nullable=true)
-     */
-    private $cause;
 
     /**
      * @var string
@@ -55,20 +50,27 @@ class Annonce
      * @ORM\Column(name="region", type="string", length=255, nullable=true)
      */
     private $region;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service", type="string", length=255, nullable=true)
+     */
+    private $service;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date", nullable=true)
+     * @ORM\Column(name="date_perdu", type="date", nullable=true)
      */
-    private $date;
+    private $datePerdu;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(name="tel", type="integer", nullable=true)
+     * @ORM\Column(name="date_annonce", type="date", nullable=true)
      */
-    private $tel;
+    private $dateAnnonce;
+
 
     /**
      * @var string
@@ -81,7 +83,10 @@ class Annonce
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $membre;
-
+    /**
+     * @ORM\Column(name="image", type="string" , nullable=true)
+     */
+    private $image;
     /**
      * @return int
      */
@@ -104,22 +109,6 @@ class Annonce
     public function setType($type)
     {
         $this->type = $type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCause()
-    {
-        return $this->cause;
-    }
-
-    /**
-     * @param string $cause
-     */
-    public function setCause($cause)
-    {
-        $this->cause = $cause;
     }
 
     /**
@@ -173,33 +162,17 @@ class Annonce
     /**
      * @return \DateTime
      */
-    public function getDate()
+    public function getDateAnnonce()
     {
-        return $this->date;
+        return $this->dateAnnonce;
     }
 
     /**
-     * @param \DateTime $date
+     * @param \DateTime $dateAnnonce
      */
-    public function setDate($date)
+    public function setDateAnnonce($dateAnnonce)
     {
-        $this->date = $date;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTel()
-    {
-        return $this->tel;
-    }
-
-    /**
-     * @param int $tel
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
+        $this->dateAnnonce = $dateAnnonce;
     }
 
     /**
@@ -216,6 +189,38 @@ class Annonce
     public function setPeriode($periode)
     {
         $this->periode = $periode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param string $service
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatePerdu()
+    {
+        return $this->datePerdu;
+    }
+
+    /**
+     * @param \DateTime $datePerdu
+     */
+    public function setDatePerdu($datePerdu)
+    {
+        $this->datePerdu = $datePerdu;
     }
 
 
@@ -246,4 +251,22 @@ class Annonce
     {
         return $this->membre;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
 }

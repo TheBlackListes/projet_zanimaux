@@ -1,0 +1,130 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block titre %}
+    <title> Veterinaire List</title>
+{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="tables">
+                <h2 class="title1">Tables des evenement</h2>
+                <h4>Recherche evenement par titre</h4>
+                {{ form_start(Form,{'attr': {'id':'search_form'}}) }}
+                <div class="md-form my-0">
+                    {{ form_widget(Form.nom,{'attr': {'class': 'form-control py-1', 'placeholder': 'Titre'}}) }}
+                </div>
+
+                {{ form_end(Form) }}
+                <div class="panel-body widget-shadow">
+                <div class="bs-example widget-shadow" data-example-id="contextual-table">
+                    <h4>         <a href="{{ path('veterinaire_ajouter') }}">Create a new veterinaire</a> </h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Adresse</th>
+                            <th>Mail</th>
+                            <th>Telephone</th>
+                            <th>Actions</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="content-body">
+                        {% for veterinaire in veterinaires %}
+
+
+                            <tr class="info">
+
+
+                                <td><a href="{{ path('veterinaire_affiche_back', { 'id': veterinaire.id }) }}">{{ veterinaire.id }}</a></td>
+                                <td>{{ veterinaire.nom }}</td>
+                                <td>{{ veterinaire.prenom }}</td>
+                                <td>{{ veterinaire.adresse }}</td>
+                                <td>{{ veterinaire.mail }}</td>
+                                <td>{{ veterinaire.telephone }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <span>
+                                            <a href="{{ path('veterinaire_affiche_back', { 'id': veterinaire.id }) }}">
+                                                <i class="glyphicon glyphicon-eye-open"></i>
+                                            </a>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                            <a href="{{ path('veterinaire_modification', { 'id': veterinaire.id }) }}">
+                                                <i class="glyphicon glyphicon-pencil"> </i>
+                                                </a>
+                                        </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                            <a href="{{ path('veterinaire_delete', { 'id': veterinaire.id }) }}">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </a>
+                                            </span>
+                                        </li>
+                                       
+                                    </ul>
+                                </td>
+
+
+                            </tr>
+
+
+
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+
+        $("#search_form").keyup(function(){
+            $("#content-body").empty();
+            var titre = $("#veterinairebundle_veterinaire_nom").val();
+            console.log(titre);
+            $.ajax({
+                type: "POST",
+                url: "{{ path('veterinaire_index_back')}}",
+                data: {
+                    titre: titre
+                },
+                success: function(veterinaire){
+                    var tab = JSON.parse(veterinaire);
+                    console.log(tab);
+                    $("#content-body").empty(
+                    );
+                    $.each(tab, function(i, veterinaire) {
+                        console.log(veterinaire);
+
+                        $("#content-body").append(
+                            "<tr>\n" +
+                            "                            <td>"+veterinaire.id+"</td>\n" +
+                            "                            <td>"+veterinaire.nom+"</td>\n" +
+                            "                            <td>"+veterinaire.prenom+"</td>\n" +
+                            "                            <td>"+veterinaire.adresse+"</td>\n" +
+                            "                            <td>"+veterinaire.mail+"</td>\n" +
+                            "                            <td>"+veterinaire.telephone+"</td>\n" +
+
+
+
+                            "                        </tr>"
+                        )
+                    });
+                }
+            });
+            return false;
+        });
+    </script>
+
+{% endblock %}

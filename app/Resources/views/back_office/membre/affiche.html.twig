@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal-{{ membre.id }}" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{ membre.username}}</h4>
+            </div>
+
+            <!--Modal body-->
+            <div class="modal-body">
+                <div class="col-md-4">
+                    <p>
+                        {% if membre.image %}
+                            <img src="{{ membre.image }}" width="150">
+                        {% endif %}
+                    </p>
+                </div>
+                <p>
+                    <label>Sexe:</label> <h6 class="modal-title">{{ membre.sexe }}</h6>
+                </p>
+                <p>
+                    <label>téléphone: </label> <h6 class="modal-title">{{ membre.telephone }}</h6>
+                </p>
+                <p>
+                    <label>Adresse: </label> <h6 class="modal-title">{{ membre.ville }} </h6>
+                </p>
+
+
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-primary" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

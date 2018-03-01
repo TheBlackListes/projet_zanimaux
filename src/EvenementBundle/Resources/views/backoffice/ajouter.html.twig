@@ -1,0 +1,69 @@
+{% extends 'back_office/base.html.twig' %}
+
+{% block body %}
+
+
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                    <div class="form-body">
+                        {{ form_start(form) }}
+                        <form method="post">
+
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">nom</label>
+                                <div>
+                                    {{ form_widget(form.nom,{'attr':{'class':'form-control1'}}) }}
+
+                                    <span>{{ form_errors(form.nom) }}</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">lieu</label>
+
+                                {{ form_widget(form.lieu,{'attr':{'class':'form-control1'}}) }}
+                                <span>{{ form_errors(form.lieu) }}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">date</label>
+
+                                {{ form_widget(form.date,{'attr':{'class':'form-control1'}}) }}
+                                <span>{{ form_errors(form.date) }}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">nombre des participant maximal</label>
+
+                                {{ form_widget(form.nbrMaxParticipant,{'attr':{'class':'form-control1'}}) }}
+                                <span>{{ form_errors(form.nbrMaxParticipant) }}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">decription</label>
+
+                                {{ form_widget(form.description,{'attr':{'class':'form-control1'}}) }}
+                                <span>{{ form_errors(form.description) }}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="focusedinput" class="col-sm-2 control-label">Image</label>
+
+                                {{ form_widget(form.image) }}
+                            </div>
+
+
+                            <div>
+                                <button type="submit" class="btn btn-default">Ajouter</button>
+                            </div>
+
+
+                        </form>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

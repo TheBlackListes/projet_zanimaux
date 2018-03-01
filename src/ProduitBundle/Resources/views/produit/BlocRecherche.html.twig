@@ -1,0 +1,24 @@
+
+<div class="sidebar sidebar-widget">
+    <h3 class="title">Recherche</h3>
+
+
+    <form action="{{ path('Produit_recherche') }}" method="POST" >
+        <div class="form-group">
+            <input class="form-control search-fields" placeholder="" type="text" id="chaine" name="chaine">
+        </div>
+
+        <div class="form-group">
+            <select class="selectpicker search-fields" id="categorie" name="categorie">
+                <option>Chien</option>
+                <option>Chat</option>
+                <option>Autre</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <button class="search-button" type="submit">Rechercher</button>
+        </div>
+    </form>
+</div>

@@ -21,6 +21,27 @@ public  function afficherevenementUser($id_user)
     return $query->getResult();
 }
 
+    public  function findbest()
+    {
+        $query= $this->getEntityManager()
+            ->createQuery("select m from EvenementBundle:Evenement m WHERE m.nbrParticipant>0   ORDER BY m.nbrParticipant DESC ")
+
+        ;
+        return $query->getResult();
+    }
+
+
+    public function findNom($nom)
+    {
+        $query= $this->getEntityManager()
+            ->createQuery("select m from EvenementBundle:Evenement m WHERE m.nom like :nom")
+            ->setParameter('nom',$nom)
+        ;
+        return $query->getResult();
+
+    }
+
+
 
 
 }

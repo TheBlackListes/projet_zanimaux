@@ -1,0 +1,105 @@
+{% extends 'front_office/base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+<!-- Sub banner start -->
+<div class="sub-banner">
+    <div class="overlay">
+        <div class="container">
+            <div class="breadcrumb-area">
+
+
+                <div class="top">
+                    <h1>My Profile</h1>
+                </div>
+                <ul class="breadcrumbs">
+                    <li><a href="{{ path('homepage')}}">Home</a></li>
+                    <li class="active">Annonce</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="my-profile">
+        <div class="container">
+
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>Proposer une annonce </h1>
+
+                    {{ form_start(form)}}
+                    <div class="form-group col-sm-12">
+                        <h5>   <label for="login-form-first-name"class="label" >Titre:</label></h5>
+                        {{ form_widget(form.titre, { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.titre) }}</span>
+                    </div><!-- /.form-group -->
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Type:</label>
+                        {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.type) }}</span>
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Service:</label>
+                        {{ form_widget(form.service, { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.service) }}</span>
+                    </div>
+
+
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Periode:</label>
+                        {{ form_widget(form.periode, { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.periode) }}</span>
+                    </div>
+
+
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Date de Perdu:</label>
+                        {{ form_widget(form.datePerdu , { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.datePerdu) }}</span>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Date:</label>
+                        {{ form_widget(form.dateAnnonce , { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.dateAnnonce ) }}</span>
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Région:</label>
+                        {{ form_widget(form.region , { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.region) }}</span>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="login-form-first-name"class="label">Description:</label>
+                        {{ form_widget(form.description , { 'attr': {'class': 'form-control'} }) }}
+                        <span style="color: red">{{ form_errors(form.description) }}</span>
+                    </div>
+
+                    {{ form_widget(form.image) }}
+                    <br clear="right"><br>
+                    <input class="btn button-md button-theme" type="submit" value="Enregistrer">
+
+
+
+                    {{ form_end(form) }}
+
+                </div>
+                <!-- My address end -->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- Avatar start -->
+                <div class="edit-profile-photo">
+                    <img src="{{ app.user.image }}" class="img-responsive">
+                    <div class="change-photo-btn">
+                    </div>
+                </div>
+                <!-- Avatar end -->
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock body %}

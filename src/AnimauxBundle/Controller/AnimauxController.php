@@ -3,43 +3,59 @@
 namespace AnimauxBundle\Controller;
 
 use AnimauxBundle\Entity\Animaux;
+use AnimauxBundle\Form\MailUserType;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AnimauxBundle\Repository\AnimauxRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AnimauxBundle\Form\AnimauxType;
 use AnimauxBundle\Form\AnimauxForm;
 use AppBundle\Entity\User;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-/**
- * Animaux controller.
- *
- */
+
 class AnimauxController extends Controller
 {
-    /**
-     * Lists all animaux entities.
-     *
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $animauxes = $em->getRepository('AnimauxBundle:Animaux')->findAll();
-
-        return $this->render('animaux/Back/index.html.twig', array(
-            'animauxes' => $animauxes,
-        ));
-    }
 
     public function afficheAnimauxAction(Request $request)
     {
         $type_offre=$request->get('type_offre');
+
         $em = $this->getDoctrine()->getManager();
+        $animaux = $em->getRepository('AnimauxBundle:Animaux')->afficheAnimauxParOffre($type_offre);
 
-        $animauxes = $em->getRepository('AnimauxBundle:Animaux')->afficheAnimauxParOffre($type_offre);
+        $animauxes  = $this->get('knp_paginator')->paginate($animaux, $request->query->getInt('page', 1), 4);
 
-        return $this->render('animaux/Front/indexList.html.twig', array(
-            'animauxes' => $animauxes,
+        return $this->render('AnimauxBundle:animaux/Front:indexList.html.twig', array(
+            'animauxes' => $animauxes, 'type_offre'=>$type_offre,
+        ));
+    }
+
+    public function afficheplusAction(Request $request)
+    {
+        $type_offre=$request->get('type_offre');
+
+        $em = $this->getDoctrine()->getManager();
+        $animaux = $em->getRepository('AnimauxBundle:Animaux')->afficheplusdate($type_offre);
+
+        $animauxes  = $this->get('knp_paginator')->paginate($animaux, $request->query->getInt('page', 1), 4);
+
+        return $this->render('AnimauxBundle:animaux/Front:indexList.html.twig', array(
+            'animauxes' => $animauxes,'type_offre'=>$type_offre,
+        ));
+    }
+    public function affichemoinAction(Request $request)
+    {
+        $type_offre=$request->get('type_offre');
+
+        $em = $this->getDoctrine()->getManager();
+        $animaux = $em->getRepository('AnimauxBundle:Animaux')->affichemoinsdate($type_offre);
+
+        $animauxes  = $this->get('knp_paginator')->paginate($animaux, $request->query->getInt('page', 1), 4);
+
+        return $this->render('AnimauxBundle:animaux/Front:indexList.html.twig', array(
+            'animauxes' => $animauxes,'type_offre'=>$type_offre,
         ));
     }
 
@@ -47,26 +63,126 @@ class AnimauxController extends Controller
     {
         $id=$request->get('id');
         $em = $this->getDoctrine()->getManager();
-
         $animauxes = $em->getRepository('AnimauxBundle:Animaux')->find($id);
 
-        return $this->render('animaux/Front/indexDescription.html.twig', array(
+        //ajouter une visite
+        $var=$animauxes->getVisite()+1;
+        $animauxes->setVisite($var);
+        var_dump($var);
+        $em->persist($animauxes);
+        $em->flush();
+
+        return $this->render('AnimauxBundle:animaux/Front:indexDescription.html.twig', array(
             'animaux' => $animauxes,
         ));
+
+    }
+
+    public function reclamerAction(Request $Request)
+    {
+        $id=$Request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $animal = $em->getRepository('AnimauxBundle:Animaux')->find($id);
+        $animal->setEtat('suspect');
+        $em->persist($animal);
+        $em->flush();
+
+        // Envoi du Mail
+        $Request = $this->container->get('request_stack')->getCurrentRequest();
+        if($Request->getMethod() == 'POST')
+        {
+            $subject=$Request->get('subject');
+            $email = $Request->get('email');
+            $nom = $Request->get('nom');
+            $tel = $Request ->get('tel');
+            $text = $Request ->get('text');
+            //var_dump($nom,$email,$id,$tel,$text);
+
+            $message= \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setCharset('utf-8')
+                ->setFrom($email)
+                ->setTo('medamine.brahmi1@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'AnimauxBundle:animaux:SwiftMailer/mailAdmin.html.twig',
+                        array('nom' => $nom,'tel'=>$tel,'text'=>$text,'id'=>$id)
+                    ), 'text/html');
+
+             $this->get('mailer')->send($message);
+        }
+        return $this->render('AnimauxBundle:animaux/Front:indexDescription.html.twig', array(
+            'animaux' => $animal,));
+    }
+
+    public function sendMailAction(Request $Request)
+    {
+        $id=$Request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $animal = $em->getRepository('AnimauxBundle:Animaux')->find($id);
+
+        $propietaire_mail=$animal->getProprietaire->GetEmail();
+        var_dump($propietaire_mail);
+
+        $Request = $this->container->get('request_stack')->getCurrentRequest();
+        if($Request->getMethod() == 'POST')
+        {
+            $email = $Request->get('email');
+            $tel = $Request ->get('tel');
+            $text = $Request ->get('text');
+            var_dump($email,$tel,$text);
+
+            $message = (new \Swift_Message('Zanimaux'))
+                ->setCharset('utf-8')
+                ->setFrom($email)
+                ->setTo($propietaire_mail)
+                ->setBody(
+                    $this->renderView(
+                        'AnimauxBundle:animaux:SwiftMailer/mailUser.html.twig',
+                        array('tel'=>$tel,'text'=>$text,'animal'=>$animal)
+                    ), 'text/html');
+
+            $this->get('mailer')->send($message);
+        }
+        return $this->render('AnimauxBundle:animaux/Front:indexDescription.html.twig', array(
+            'animaux' => $animal,));
+    }
+
+        public function rechercheIndexAction(Request $Request)
+    {
+        $Request = $this->container->get('request_stack')->getCurrentRequest();
+        if($Request->getMethod() == 'POST')
+        {
+            $race = $Request->get('race');
+            $type = $Request ->get('type');
+            $offre = $Request ->get('offre');
+            $sexe = $Request->get('sexe');
+            $age = $Request ->get('age');
+            $energie = $Request ->get('energie');
+            $force = $Request ->get('force');
+            $sociabilite = $Request ->get('sociabilite');
+            $intelligence = $Request ->get('intelligence');
+            $prix = $Request ->get('prix');
+
+            var_dump($race,$type,$offre,$sexe,$age,$prix,$energie,$force,$sociabilite,$intelligence);
+        }
+        return $this->render('AnimauxBundle:Default:index.html.twig');
     }
 
     public function memberPetsListAction(Request $request)
     {
-        //$id_user=2;
-        //$id_user=$request->get('proprietaire');
         $id_user=$this->getUser();
+
         $em = $this->getDoctrine()->getManager();
 
-        $animauxes = $em->getRepository('AnimauxBundle:Animaux')->afficheAnimauxUser($id_user);
+        $animaux = $em->getRepository('AnimauxBundle:Animaux')->afficheAnimauxUser($id_user);
 
-        return $this->render('animaux/Front/memberPetsList.html.twig', array(
-            'animauxes' => $animauxes,
-        ));
+        //$animauxes  = $this->get('knp_paginator')->paginate($animaux, $request->query->getInt('page', 1), 4);
+
+
+        return $this->render('AnimauxBundle:animaux/Front:memberPetsList.html.twig', array('animaux' => $animaux));
     }
 
     public function memberPetsListDescriptionAction(Request $request)
@@ -76,9 +192,7 @@ class AnimauxController extends Controller
 
         $animauxes = $em->getRepository('AnimauxBundle:Animaux')->find($id);
 
-        return $this->render('animaux/Front/memberPetDescription.html.twig', array(
-            'animaux' => $animauxes,
-        ));
+        return $this->render('AnimauxBundle:animaux/Front:memberPetDescription.html.twig', array('animaux' => $animauxes));
     }
 
     /**
@@ -88,118 +202,66 @@ class AnimauxController extends Controller
     public function ajouterAnimalAction(Request $request)
     {
         $animaux = new Animaux();
-        $form = $this->createForm('AnimauxBundle\Form\AnimauxForm', $animaux);
+        $form = $this->createForm('AnimauxBundle\Form\AnimauxType', $animaux);
         $form->handleRequest($request);
         $user=$this->getUser();
+        $date= new\DateTime('now') ;
 
         if ($request->isMethod('Post')) {
+
+            $dir="C:\wamp64\www\projet_zanimaux\web\images";
+            $file=$form['photo']->getData();
+            $animaux->setPhoto( $animaux->getNom().".png");
+            $file->move($dir,$animaux->getPhoto());
+
             $animaux=$form->getData();
             $animaux->setProprietaire($user);
+            $animaux->setDate($date);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($animaux);
             $em->flush();
 
-            return $this->redirectToRoute('animaux_User_Pets_description', array('id' => $animaux->getId()));
+            return $this->redirectToRoute('animaux_User_List');
         }
 
-        return $this->render('animaux/Front/FormulaireAjoutAnimal.html.twig', array(
+        return $this->render('AnimauxBundle:animaux/Front:FormulaireAjoutAnimal.html.twig', array(
             'animaux' => $animaux,
             'form' => $form->createView(),
         ));
     }
 
-    /**
-     * Creates a new animaux entity.
-     *
-     */
-    public function newAction(Request $request)
+    public function modifierAnimalAction(Request $request)
     {
-        $animaux = new Animaux();
-        $form = $this->createForm('AnimauxBundle\Form\AnimauxForm', $animaux);
-        $form->handleRequest($request);
+        $id=$request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $animal = $em->getRepository('AnimauxBundle:Animaux')->find($id);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $Form = $this->createForm(AnimauxType::class, $animal);
+        $Form->handleRequest($request);
+
+        if ($Form->isSubmitted()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($animaux);
+
+            $dir="C:\wamp64\www\projet_zanimaux\web\images";
+            $file=$Form['photo']->getData();
+            $animal->setPhoto( $animal->getNom().".png");
+            $file->move($dir,$animal->getPhoto());
+
+            $em->persist($animal);
             $em->flush();
-
-            return $this->redirectToRoute('animaux_show', array('id' => $animaux->getId()));
+            return $this->redirectToRoute('animaux_User_List');
         }
-
-        return $this->render('animaux/Back/new.html.twig', array(
-            'animaux' => $animaux,
-            'form' => $form->createView(),
-        ));
+        return $this->render('AnimauxBundle:animaux/Front:FormulaireModifierAnimal.html.twig', array('form' => $Form->createView()));
     }
 
-    /**
-     * Finds and displays a animaux entity.
-     *
-     */
-    public function showAction(Animaux $animaux)
+    public function supprimerAnimalAction($id)
     {
-        $deleteForm = $this->createDeleteForm($animaux);
-
-        return $this->render('animaux/Back/show.html.twig', array(
-            'animaux' => $animaux,
-            'delete_form' => $deleteForm->createView(),
-        ));
+        $em=$this->getDoctrine()->getManager();
+        $animal=$em->getRepository("AnimauxBundle:Animaux")->find($id);
+        $em->remove($animal);
+        $em->flush();
+        return $this->redirectToRoute('animaux_User_List');
     }
 
-    /**
-     * Displays a form to edit an existing animaux entity.
-     *
-     */
-    public function editAction(Request $request, Animaux $animaux)
-    {
-        $deleteForm = $this->createDeleteForm($animaux);
-        $editForm = $this->createForm('AnimauxBundle\Form\AnimauxType', $animaux);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('animaux_edit', array('id' => $animaux->getId()));
-        }
-
-        return $this->render('animaux/Back/edit.html.twig', array(
-            'animaux' => $animaux,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a animaux entity.
-     *
-     */
-    public function deleteAction(Request $request, Animaux $animaux)
-    {
-        $form = $this->createDeleteForm($animaux);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($animaux);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('animaux_index');
-    }
-
-    /**
-     * Creates a form to delete a animaux entity.
-     *
-     * @param Animaux $animaux The animaux entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Animaux $animaux)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('animaux_delete', array('id' => $animaux->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }

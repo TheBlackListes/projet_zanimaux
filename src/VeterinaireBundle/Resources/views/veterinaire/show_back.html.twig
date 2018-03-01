@@ -1,0 +1,104 @@
+
+
+{% extends 'back_office/base.html.twig' %}
+
+
+{% block body %}
+    <h1>Veterinaire</h1>
+    <body class="cbp-spmenu-push" onload="initialize()">
+    <div id="map-canvas"></div>
+    <!-- main content start-->
+    <div id="page-wrapper">
+        <div class="main-page">
+            <h2 class="title1"></h2>
+            <div class="elements">
+
+                <div class="col-md-10 chart-layer1-right">
+                    <div class="user-marorm">
+                        <div class="malorum-top">
+                        </div>
+                        <div class="malorm-bottom">
+                            <span class="malorum-pro"> </span>
+                            <h2>Dr. {{ veterinaire.nom }} {{ veterinaire.prenom }}</h2>
+                            <div class="chit-chat-layer1">
+
+                            </div>
+
+                            <p>
+
+                            </p>
+                            <ul class="malorum-icons">
+                                <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"> </i>
+                                        <div class="tooltip"><span>Facebook</span></div>
+                                    </a></li>
+                                <li><a href="https://www.facebook.com/"><i class="fa fa-twitter"> </i>
+                                        <div class="tooltip"><span>Twitter</span></div>
+                                    </a>
+                                </li>
+                                <li><a href="https://www.facebook.com/"><i class="fa fa-google-plus"> </i>
+                                        <div class="tooltip"><span>Google</span></div>
+                                    </a>
+                                </li>
+                                </br>
+                                </br>
+                                <li>
+                                            <span>
+                                            <a href="{{ path('veterinaire_delete', { 'id': veterinaire.id }) }}">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </a>
+                                            </span>
+                                </li>
+                                <li>
+                                            <span>
+                                            <a href="{{ path('veterinaire_modification', { 'id': veterinaire.id }) }}">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                            </a>
+                                            </span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12.5 chit-chat-layer1-left">
+
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Prenom</th>
+                                        <th>Adresse</th>
+
+                                        <th>Mail</th>
+                                        <th>télephone</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>{{ veterinaire.id }}</td>
+                                        <td>{{ veterinaire.prenom }}</td>
+                                        <td>{{ veterinaire.Adresse }}</td>
+
+                                        <td>{{ veterinaire.mail }}</td>
+                                        <td>{{ veterinaire.telephone }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+
+                <!-- //calendar -->
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+{% endblock %}

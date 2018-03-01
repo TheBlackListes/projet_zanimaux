@@ -1,3 +1,7 @@
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
@@ -35,4 +39,15 @@ animaux:
     resource: "@AnimauxBundle/Resources/config/routing.yml"
     prefix:   /Animaux
 
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /msg
+
+swiftmailer:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+    prefix: /mail
+
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+    prefix:   /
 
